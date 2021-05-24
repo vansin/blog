@@ -12,7 +12,8 @@ def index(path):
     if path == '':
         return render_template('index.html')
     else:
-        return render_template(path+'.html')
+        return render_template(path)
+        # return render_template(path+'.html')
 
 if __name__ == '__main__':
     app.run(port=8888, debug=True)
