@@ -1,0 +1,5 @@
+.env
+template.yml
+.funignore
+__pycache__
+node_modules

@@ -1,2 +1,10 @@
-# blog
-记录成长
+# vitepress 函数计算部署demo
+
+
+## 部署方法
+
+
+```
+fun deploy
+```
+
