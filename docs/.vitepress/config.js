@@ -48,8 +48,8 @@ function getGuideSidebar() {
     {
       text: '前端核心基础',
       children: [
-        {
-          text: '配置高效前端开发环境', link: '/web/front' }
+        { text: '配置高效前端开发环境', link: '/web/front' },
+        { text: 'Element', link: '/web/element' }
       ]
     },
     {
@@ -66,7 +66,7 @@ function getWeeklySidebar() {
   return [
     {
       text: '闻星周刊',
-      children: [{ text: '20210524', link: '/weekly/20210524' }]
+      children: [{ text: '20210530', link: '/weekly/20210530' }]
     }
   ]
 }
