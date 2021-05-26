@@ -12,6 +12,9 @@ def index(path):
     if path == '':
         return render_template('index.html')
     else:
+        if '.html' not in path:
+            path += '.html'
+
         return render_template(path)
         # return render_template(path+'.html')
 
