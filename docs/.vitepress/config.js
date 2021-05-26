@@ -6,8 +6,8 @@ module.exports = {
   themeConfig: {
     repo: 'vansin/blog',
     docsDir: 'docs',
-
     editLinks: true,
+    docsBranch: 'main',
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: 'Last Updated',
 
@@ -27,7 +27,20 @@ module.exports = {
       {
         text: '技术周刊',
         link: '/weekly/index',
-        activeMatch: '^/config/'
+        activeMatch: '^/weekly/'
+      },
+      {
+        text: 'JavaScript',
+        link: '/JavaScript/index',
+        activeMatch: '^/JavaScript/'
+      },
+      {
+        text: '跨端',
+        link: 'cross-platform/index'
+      },
+      {
+        text: '其他',
+        link: 'other/index'
       },
       {
         text: 'Release Notes',
@@ -38,9 +51,23 @@ module.exports = {
     sidebar: {
       '/web/': getGuideSidebar(),
       '/weekly/': getWeeklySidebar(),
-      '/': getGuideSidebar(),
+      '/JavaScript/': getJavaScriptSidebar(),
+      '/cross-platform/': getCrossPlatformSidebar(),
+      '/other/': getOtherSidebar(),
+      '/': getGuideSidebar()
     }
   }
+}
+
+function getOtherSidebar() {
+  return [
+    {
+      text: 'Web前端相关',
+      children: [
+        { text: 'Vue组件', link: '/other/vue-component' }
+      ]
+    }
+  ]
 }
 
 function getGuideSidebar() {
@@ -57,6 +84,28 @@ function getGuideSidebar() {
       children: [
         { text: '表格存储', link: '/aliyun/tablestore' },
         { text: '函数计算', link: '/aliyun/serverless' },
+      ]
+    }
+  ]
+}
+
+function getJavaScriptSidebar() {
+  return [
+    {
+      text: 'JavaScript核心基础',
+      children: [
+        { text: '前言', link: '/JavaScript/index' }
+      ]
+    }
+  ]
+}
+
+function getCrossPlatformSidebar() {
+  return [
+    {
+      text: '跨端方案',
+      children: [
+        { text: '前言', link: '/cross-platform/index' }
       ]
     }
   ]
