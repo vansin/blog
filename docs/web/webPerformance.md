@@ -13,3 +13,6 @@
 [lcp](https://web.dev/lcp/)  
 [fid](https://web.dev/fid/)  
 [cls](https://web.dev/cls/)
+
+
+[Google I|O Web](https://www.youtube.com/playlist?list=PLNYkxOF6rcIAK3hg7C9WVBaGgWZeQCD12)
