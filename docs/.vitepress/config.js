@@ -35,6 +35,11 @@ module.exports = {
         activeMatch: '^/JavaScript/'
       },
       {
+        text: 'vue',
+        link: '/vue/index',
+        activeMatch: '^/vue/'
+      },
+      {
         text: '跨端',
         link: 'cross-platform/index'
       },
@@ -54,6 +59,7 @@ module.exports = {
       '/JavaScript/': getJavaScriptSidebar(),
       '/cross-platform/': getCrossPlatformSidebar(),
       '/other/': getOtherSidebar(),
+      '/vue/': getVueSidebar(),
       '/': getGuideSidebar()
     }
   }
@@ -64,7 +70,25 @@ function getOtherSidebar() {
     {
       text: 'Web前端相关',
       children: [
-        { text: 'Vue组件', link: '/other/vue-component' }
+        { text: 'Vue组件', link: '/other/vue-component' },
+        { text: '早早聊彩蛋场', link: '/other/zaorun20210529' }
+      ]
+    }
+  ]
+}
+function getVueSidebar() {
+  return [
+    {
+      text: 'Vue3',
+      children: [
+        { text: 'Vue3基本情况', link: '/vue/vue3/index' },
+        { text: 'Vue3源码解析', link: '/vue/vue3/sourceLean' }
+      ]
+    },
+    {
+      text: 'Vue2',
+      children: [
+        { text: 'Vue2基本情况', link: '/vue/vue2/index' }
       ]
     }
   ]
@@ -76,7 +100,8 @@ function getGuideSidebar() {
       text: '前端核心基础',
       children: [
         { text: '配置高效前端开发环境', link: '/web/front' },
-        { text: 'Element', link: '/web/element' }
+        { text: 'Web前端性能指标', link: '/web/webPerformance' },
+        { text: '递归组件', link: '/web/recursion' }
       ]
     },
     {
