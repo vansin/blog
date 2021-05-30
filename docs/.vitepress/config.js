@@ -26,8 +26,7 @@ module.exports = {
       { text: '技术博客', link: '/', activeMatch: '^/$|^/guide/' },
       {
         text: '技术周刊',
-        link: '/weekly/index',
-        activeMatch: '^/weekly/'
+        link: '/weekly/index'
       },
       {
         text: 'JavaScript',
@@ -119,7 +118,8 @@ function getJavaScriptSidebar() {
     {
       text: 'JavaScript核心基础',
       children: [
-        { text: '前言', link: '/JavaScript/index' }
+        { text: '前言', link: '/JavaScript/index' },
+        { text: '对象、类与面向对象编程', link: '/JavaScript/object' }
       ]
     }
   ]
