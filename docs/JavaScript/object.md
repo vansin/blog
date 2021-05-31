@@ -361,6 +361,78 @@ console.log(Object.getPrototypeOf(person) === biped); // true
 
 #### 原型层级
 
+在通过对象访问属性时，会按照这个属性的名称开始搜索。搜索开始于对象实例本身。如果在这个
+实例上发现了给定的名称，则返回该名称对应的值。如果没有找到这个属性，则搜索会沿着指针进入原
+型对象，然后在原型对象上找到属性后，再返回对应的值。因此，在调用 person1.sayName()时，会
+发生两步搜索。首先，JavaScript 引擎会问：“person1 实例有 sayName 属性吗？”答案是没有。然后，
+继续搜索并问：“person1 的原型有 sayName 属性吗？”答案是有。于是就返回了保存在原型上的这
+个函数。在调用 person2.sayName()时，会发生同样的搜索过程，而且也会返回相同的结果。这就是
+原型用于在多个对象实例间共享属性和方法的原理。
+
+
+注意 前面提到的 constructor 属性只存在于原型对象，因此通过实例对象也是可以访
+问到的。
+
+虽然可以通过实例读取原型对象上的值，但不可能通过实例重写这些值。如果在实例上添加了一个
+与原型对象中同名的属性，那就会在实例上创建这个属性，这个属性会遮住原型对象上的属性。下面看
+一个例子：
+
+```js
+function Person() {} 
+Person.prototype.name = "Nicholas"; 
+Person.prototype.age = 29; 
+Person.prototype.job = "Software Engineer"; 
+Person.prototype.sayName = function() { 
+ console.log(this.name); 
+}; 
+let person1 = new Person(); 
+let person2 = new Person(); 
+person1.name = "Greg"; 
+console.log(person1.name); // "Greg"，来自实例
+console.log(person2.name); // "Nicholas"，来自原型
+```
+
+在这个例子中，person1 的 name 属性遮蔽了原型对象上的同名属性。虽然 person1.name 和
+person2.name 都返回了值，但前者返回的是"Greg"（来自实例），后者返回的是"Nicholas"（来自
+原型）。当 console.log()访问 person1.name 时，会先在实例上搜索个属性。因为这个属性在实例
+上存在，所以就不会再搜索原型对象了。而在访问 person2.name 时，并没有在实例上找到这个属性，
+所以会继续搜索原型对象并使用定义在原型上的属性。
+
+只要给对象实例添加一个属性，这个属性就会遮蔽（shadow）原型对象上的同名属性，也就是虽然
+不会修改它，但会屏蔽对它的访问。即使在实例上把这个属性设置为 null，也不会恢复它和原型的联
+系。不过，使用 delete 操作符可以完全删除实例上的这个属性，从而让标识符解析过程能够继续搜索
+原型对象。
+
+```js
+function Person() {} 
+Person.prototype.name = "Nicholas";
+Person.prototype.age = 29; 
+Person.prototype.job = "Software Engineer"; 
+Person.prototype.sayName = function() { 
+ console.log(this.name); 
+}; 
+let person1 = new Person(); 
+let person2 = new Person(); 
+console.log(person1.hasOwnProperty("name")); // false 
+person1.name = "Greg"; 
+console.log(person1.name); // "Greg"，来自实例
+console.log(person1.hasOwnProperty("name")); // true 
+console.log(person2.name); // "Nicholas"，来自原型
+console.log(person2.hasOwnProperty("name")); // false 
+delete person1.name; 
+console.log(person1.name); // "Nicholas"，来自原型
+console.log(person1.hasOwnProperty("name")); // false
+```
+在这个例子中，通过调用 hasOwnProperty()能够清楚地看到访问的是实例属性还是原型属性。
+调用 person1.hasOwnProperty("name")只在重写 person1 上 name 属性的情况下才返回 true，表
+明此时 name 是一个实例属性，不是原型属性。图 8-2 形象地展示了上面例子中各个步骤的状态。（为简
+单起见，图中省略了 Person 构造函数。）
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210531083450.png)
+
+注意 ECMAScript 的 Object.getOwnPropertyDescriptor()方法只对实例属性有
+效。要取得原型属性的描述符，就必须直接在原型对象上调用 Object.getOwnPropertyDescriptor()。
+
 #### 原型和in操作符
 
 #### 属性枚举顺序
