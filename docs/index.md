@@ -14,10 +14,9 @@
 ![Code Time](https://img.shields.io/endpoint?style=flat&url=https://codetime-api.datreks.com/badge/1430?logoColor=white%26project=%26recentMS=0%26showProject=false)
 
 ```javascript
-{
-    name: '闻星(vansin)',
-    technologyStack: 'JavaScript Vue Python nodejs'
-}
+const vansin = new Engineer()
+vansin.name('闻星vansin')
+vansin.stack(['Vue3全家桶', 'Python Flask', 'TableStore', 'Aliyun FasS'])
 ```
 
 

@@ -25,8 +25,9 @@ module.exports = {
     nav: [
       { text: '技术博客', link: '/', activeMatch: '^/$|^/guide/' },
       {
-        text: '技术周刊',
-        link: '/weekly/index'
+        text: '数据结构与算法',
+        link: '/leetcode/index',
+        activeMatch: '^/vue/'
       },
       {
         text: 'JavaScript',
@@ -34,13 +35,17 @@ module.exports = {
         activeMatch: '^/JavaScript/'
       },
       {
-        text: 'vue',
+        text: 'Vue',
         link: '/vue/index',
         activeMatch: '^/vue/'
       },
       {
         text: '跨端',
         link: 'cross-platform/index'
+      },
+      {
+        text: '技术周刊',
+        link: '/weekly/index'
       },
       {
         text: '其他',
@@ -59,11 +64,23 @@ module.exports = {
       '/cross-platform/': getCrossPlatformSidebar(),
       '/other/': getOtherSidebar(),
       '/vue/': getVueSidebar(),
+      '/leetcode/': getLeetcodeSidebar(),
       '/': getGuideSidebar()
     }
   }
 }
 
+function getLeetcodeSidebar() {
+  return [
+    {
+      text: '数据结构与算法',
+      children: [
+        { text: '算法复杂程度', link: '/leetcode/complexity' },
+        { text: '数组&链表', link: '/leetcode/array_linklist' },
+      ]
+    }
+  ]
+}
 function getOtherSidebar() {
   return [
     {
@@ -140,7 +157,10 @@ function getWeeklySidebar() {
   return [
     {
       text: '闻星周刊',
-      children: [{ text: '20210530', link: '/weekly/20210530' }]
+      children: [
+        { text: '20210606', link: '/weekly/20210606' },
+        { text: '20210530', link: '/weekly/20210530' }
+    ]
     }
   ]
 }

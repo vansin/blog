@@ -423,6 +423,7 @@ delete person1.name;
 console.log(person1.name); // "Nicholas"，来自原型
 console.log(person1.hasOwnProperty("name")); // false
 ```
+
 在这个例子中，通过调用 hasOwnProperty()能够清楚地看到访问的是实例属性还是原型属性。
 调用 person1.hasOwnProperty("name")只在重写 person1 上 name 属性的情况下才返回 true，表
 明此时 name 是一个实例属性，不是原型属性。图 8-2 形象地展示了上面例子中各个步骤的状态。（为简
@@ -435,8 +436,197 @@ console.log(person1.hasOwnProperty("name")); // false
 
 #### 原型和in操作符
 
+有两种方式使用 in 操作符：单独使用和在 for-in 循环中使用。在单独使用时，in 操作符会在可
+以通过对象访问指定属性时返回 true，无论该属性是在实例上还是在原型上。来看下面的例子：
+
+```js
+function Person() {} 
+Person.prototype.name = "Nicholas"; 
+Person.prototype.age = 29; 
+Person.prototype.job = "Software Engineer"; 
+Person.prototype.sayName = function() { 
+ console.log(this.name); 
+}; 
+let person1 = new Person(); 
+let person2 = new Person(); 
+console.log(person1.hasOwnProperty("name")); // false 
+console.log("name" in person1); // true 
+person1.name = "Greg"; 
+console.log(person1.name); // "Greg"，来自实例
+console.log(person1.hasOwnProperty("name")); // true 
+console.log("name" in person1); // true 
+console.log(person2.name); // "Nicholas"，来自原型
+console.log(person2.hasOwnProperty("name")); // false 
+console.log("name" in person2); // true 
+delete person1.name; 
+console.log(person1.name); // "Nicholas"，来自原型
+console.log(person1.hasOwnProperty("name")); // false 
+console.log("name" in person1); // true
+```
+
+在上面整个例子中，name 随时可以通过实例或通过原型访问到。因此，调用"name" in persoon1
+时始终返回 true，无论这个属性是否在实例上。如果要确定某个属性是否存在于原型上，则可以像下
+面这样同时使用 hasOwnProperty()和 in 操作符：
+
+```js
+function hasPrototypeProperty(object, name){ 
+ return !object.hasOwnProperty(name) && (name in object); 
+}
+```
+
+只要通过对象可以访问，in 操作符就返回 true，而 hasOwnProperty()只有属性存在于实例上
+时才返回 true。因此，只要 in 操作符返回 true 且 hasOwnProperty()返回 false，就说明该属性
+是一个原型属性。来看下面的例子：
+
+```js
+function Person() {} 
+Person.prototype.name = "Nicholas"; 
+Person.prototype.age = 29; 
+Person.prototype.job = "Software Engineer";
+Person.prototype.sayName = function() { 
+ console.log(this.name); 
+}; 
+let person = new Person(); 
+console.log(hasPrototypeProperty(person, "name")); // true 
+person.name = "Greg"; 
+console.log(hasPrototypeProperty(person, "name")); // false
+```
+
+在这里，name 属性首先只存在于原型上，所以 hasPrototypeProperty()返回 true。而在实例
+上重写这个属性后，实例上也有了这个属性，因此 hasPrototypeProperty()返回 false。即便此时
+原型对象还有 name 属性，但因为实例上的属性遮蔽了它，所以不会用到。
+
+在 for-in 循环中使用 in 操作符时，可以通过对象访问且可以被枚举的属性都会返回，包括实例
+属性和原型属性。遮蔽原型中不可枚举（[[Enumerable]]特性被设置为 false）属性的实例属性也会
+在 for-in 循环中返回，因为默认情况下开发者定义的属性都是可枚举的。
+
+要获得对象上所有可枚举的实例属性，可以使用 Object.keys()方法。这个方法接收一个对象作
+为参数，返回包含该对象所有可枚举属性名称的字符串数组。比如：
+
+```js
+function Person() {} 
+Person.prototype.name = "Nicholas"; 
+Person.prototype.age = 29; 
+Person.prototype.job = "Software Engineer"; 
+Person.prototype.sayName = function() { 
+ console.log(this.name); 
+}; 
+let keys = Object.keys(Person.prototype); 
+console.log(keys); // "name,age,job,sayName" 
+let p1 = new Person(); 
+p1.name = "Rob"; 
+p1.age = 31; 
+let p1keys = Object.keys(p1); 
+console.log(p1keys); // "[name,age]"
+```
+
+这里，keys 变量保存的数组中包含"name"、"age"、"job"和"sayName"。这是正常情况下通过
+for-in 返回的顺序。而在 Person 的实例上调用时，Object.keys()返回的数组中只包含"name"和
+"age"两个属性。
+
+如果想列出所有实例属性，无论是否可以枚举，都可以使用 Object.getOwnPropertyNames()：
+
+```js
+let keys = Object.getOwnPropertyNames(Person.prototype); 
+console.log(keys); // "[constructor,name,age,job,sayName]"
+```
+
+注意，返回的结果中包含了一个不可枚举的属性 constructor。Object.keys()和 Object. 
+getOwnPropertyNames()在适当的时候都可用来代替 for-in 循环。
+
+在 ECMAScript 6 新增符号类型之后，相应地出现了增加一个 Object.getOwnPropertyNames()
+的兄弟方法的需求，因为以符号为键的属性没有名称的概念。因此，Object.getOwnPropertySymbols()方法就出现了，这个方法与 Object.getOwnPropertyNames()类似，只是针对符号而已：
+
+```js
+let k1 = Symbol('k1'), 
+k2 = Symbol('k2');
+
+let o = { 
+ [k1]: 'k1', 
+ [k2]: 'k2' 
+}; 
+console.log(Object.getOwnPropertySymbols(o)); 
+// [Symbol(k1), Symbol(k2)]
+```
+
+
 #### 属性枚举顺序
+
+for-in 循环、Object.keys()、Object.getOwnPropertyNames()、Object.getOwnPropertySymbols()以及 Object.assign()在属性枚举顺序方面有很大区别。for-in 循环和 Object.keys()
+的枚举顺序是不确定的，取决于 JavaScript 引擎，可能因浏览器而异。
+
+Object.getOwnPropertyNames()、Object.getOwnPropertySymbols()和 Object.assign()
+的枚举顺序是确定性的。先以升序枚举数值键，然后以插入顺序枚举字符串和符号键。在对象字面量中
+定义的键以它们逗号分隔的顺序插入。
+
+```js
+let k1 = Symbol('k1'), 
+ k2 = Symbol('k2'); 
+let o = { 
+ 1: 1, 
+ first: 'first', 
+ [k1]: 'sym2', 
+ second: 'second', 
+ 0: 0 
+}; 
+o[k2] = 'sym2'; 
+o[3] = 3; 
+o.third = 'third'; 
+o[2] = 2; 
+console.log(Object.getOwnPropertyNames(o)); 
+// ["0", "1", "2", "3", "first", "second", "third"] 
+console.log(Object.getOwnPropertySymbols(o)); 
+// [Symbol(k1), Symbol(k2)]
+```
+
+### 对象迭代
+
+在 JavaScript 有史以来的大部分时间内，迭代对象属性都是一个难题。ECMAScript 2017 新增了两
+个静态方法，用于将对象内容转换为序列化的——更重要的是可迭代的——格式。这两个静态方法
+Object.values()和 Object.entries()接收一个对象，返回它们内容的数组。Object.values()
+返回对象值的数组，Object.entries()返回键/值对的数组。
+
+下面的示例展示了这两个方法：
+
+```js
+const o = { 
+ foo: 'bar', 
+ baz: 1, 
+ qux: {} 
+}; 
+console.log(Object.values(o));
+
+
+// ["bar", 1, {}] 
+console.log(Object.entries((o))); 
+// [["foo", "bar"], ["baz", 1], ["qux", {}]] 
+```
+
+注意，非字符串属性会被转换为字符串输出。另外，这两个方法执行对象的浅复制：
+
+```js
+const o = { 
+ qux: {} 
+}; 
+console.log(Object.values(o)[0] === o.qux); 
+// true 
+console.log(Object.entries(o)[0][1] === o.qux); 
+// true 
+符号属性会被忽略：
+const sym = Symbol(); 
+const o = { 
+ [sym]: 'foo' 
+}; 
+console.log(Object.values(o)); 
+// [] 
+console.log(Object.entries((o))); 
+// []
+
+```
+
 
 ## 继承
 
 ## 类
+
+## 
