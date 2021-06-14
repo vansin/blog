@@ -104,7 +104,8 @@ function getVueSidebar() {
     {
       text: 'Vue2',
       children: [
-        { text: 'Vue2基本情况', link: '/vue/vue2/index' }
+        { text: 'Vue2基本情况', link: '/vue/vue2/index' },
+        { text: '插槽', link: '/vue/vue2/slot' }
       ]
     }
   ]
@@ -136,7 +137,14 @@ function getJavaScriptSidebar() {
       text: 'JavaScript核心基础',
       children: [
         { text: '前言', link: '/JavaScript/index' },
-        { text: '对象、类与面向对象编程', link: '/JavaScript/object' }
+        { text: 'Array', link: '/JavaScript/Array' },
+        { text: 'Closure', link: '/JavaScript/Closures' },
+        { text: '对象、类与面向对象编程', link: '/JavaScript/object' },
+        { text: 'this', link: '/JavaScript/this' },
+        { text: 'Hoisting', link: '/JavaScript/Hoisting' },
+        { text: 'Async', link: '/JavaScript/async' },
+        { text: 'ClientStorage', link: '/JavaScript/ClientStorage' },
+        { text: 'Proxy', link: '/JavaScript/proxy' }
       ]
     }
   ]
@@ -158,6 +166,7 @@ function getWeeklySidebar() {
     {
       text: '闻星周刊',
       children: [
+        { text: '20210613', link: '/weekly/20210613' },
         { text: '20210606', link: '/weekly/20210606' },
         { text: '20210530', link: '/weekly/20210530' }
     ]

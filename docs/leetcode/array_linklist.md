@@ -147,6 +147,23 @@ class Solution:
         return preHead.next
 ```
 
+等价三
+
+```python
+class Solution:
+    def swapPairs(self, head):
+
+        self.next = head
+        pre = self
+ 
+        while pre.next and pre.next.next:
+            a = pre.next
+            b = a.next
+            pre.next, b.next, a.next = b, a, b.next
+            pre = a
+
+        return self.next
+```
 
 ### [linked-list-cycle](https://leetcode-cn.com/problems/linked-list-cycle/)
 
@@ -188,7 +205,6 @@ var hasCycle = function(head) {
 ```
 
 ### [linked-list-cycle-ii](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
-
 
 
 ### [reverse-nodes-in-k-group](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)

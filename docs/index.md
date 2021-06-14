@@ -16,7 +16,7 @@
 ```javascript
 const vansin = new Engineer()
 vansin.name('闻星vansin')
-vansin.stack(['Vue3全家桶', 'Python Flask', 'TableStore', 'Aliyun FasS'])
+vansin.stack(['Vue3全家桶', 'Python Flask', 'TableStore', 'Aliyun FaaS'])
 ```
 
 
