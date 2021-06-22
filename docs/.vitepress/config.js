@@ -87,7 +87,10 @@ function getOtherSidebar() {
       text: 'Web前端相关',
       children: [
         { text: 'Vue组件', link: '/other/vue-component' },
-        { text: '早早聊彩蛋场', link: '/other/zaorun20210529' }
+        { text: '早早聊彩蛋场', link: '/other/zaorun20210529' },
+        { text: 'ubuntu', link: '/other/ubuntu' },
+        { text: '环境变量相关', link: '/other/environment_value' },
+        { text: 'docker', link: '/other/docker' }
       ]
     }
   ]
