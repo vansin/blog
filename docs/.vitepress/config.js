@@ -52,6 +52,11 @@ module.exports = {
         link: 'other/index'
       },
       {
+        text: 'paper',
+        link: 'paper/index'
+      },
+
+      {
         text: 'Release Notes',
         link: 'https://github.com/vansin'
       }
@@ -65,6 +70,7 @@ module.exports = {
       '/other/': getOtherSidebar(),
       '/vue/': getVueSidebar(),
       '/leetcode/': getLeetcodeSidebar(),
+      '/paper/': getPaperSidebar(),
       '/': getGuideSidebar()
     }
   }
@@ -81,6 +87,17 @@ function getLeetcodeSidebar() {
     }
   ]
 }
+function getPaperSidebar() {
+  return [
+    {
+      text: '科研Paper',
+      children: [
+        { text: '方法论', link: '/paper/methodology' },
+        { text: '搭建炼丹炉', link: '/paper/environment' },
+      ]
+    }
+  ]
+}
 function getOtherSidebar() {
   return [
     {
@@ -90,7 +107,9 @@ function getOtherSidebar() {
         { text: '早早聊彩蛋场', link: '/other/zaorun20210529' },
         { text: 'ubuntu', link: '/other/ubuntu' },
         { text: '环境变量相关', link: '/other/environment_value' },
-        { text: 'docker', link: '/other/docker' }
+        { text: 'docker', link: '/other/docker' },
+        { text: 'ubuntu下高效写作', link: '/other/write_at_ubuntu' },
+        { text: '性能监控截图', link: '/other/performance' }
       ]
     }
   ]
@@ -172,6 +191,7 @@ function getWeeklySidebar() {
     {
       text: '闻星周刊',
       children: [
+        { text: '20210627', link: '/weekly/20210627' },
         { text: '20210613', link: '/weekly/20210613' },
         { text: '20210606', link: '/weekly/20210606' },
         { text: '20210530', link: '/weekly/20210530' }

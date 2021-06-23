@@ -11,8 +11,7 @@
 - 如何使用组件
   - 定义
   - 分类：有状态组件、functional、abstract
-  - 通信： props，$emit()/$on(),provide/inject,$children/$parent/$root/$attrs/$listeners
-  - 内容分发 <slot> <template> v-slot
+  - 内容分发
   - 使用及优化：is，keep-aliva，异步组件, 缓存
 - 组件的本质
   - 组件配置=>VueComponent实例=>render()=>Virtual DOM => DOM
