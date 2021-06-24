@@ -94,6 +94,7 @@ function getPaperSidebar() {
       children: [
         { text: '方法论', link: '/paper/methodology' },
         { text: '搭建炼丹炉', link: '/paper/environment' },
+        { text: '经典论文参考', link: '/paper/reference' },
       ]
     }
   ]
