@@ -40,10 +40,6 @@ module.exports = {
         activeMatch: '^/vue/'
       },
       {
-        text: '跨端',
-        link: 'cross-platform/index'
-      },
-      {
         text: '技术周刊',
         link: '/weekly/index'
       },
@@ -66,7 +62,6 @@ module.exports = {
       '/web/': getGuideSidebar(),
       '/weekly/': getWeeklySidebar(),
       '/JavaScript/': getJavaScriptSidebar(),
-      '/cross-platform/': getCrossPlatformSidebar(),
       '/other/': getOtherSidebar(),
       '/vue/': getVueSidebar(),
       '/leetcode/': getLeetcodeSidebar(),
@@ -95,6 +90,9 @@ function getPaperSidebar() {
         { text: '方法论', link: '/paper/methodology' },
         { text: '搭建炼丹炉', link: '/paper/environment' },
         { text: '经典论文参考', link: '/paper/reference' },
+        { text: '数据集汇总', link: '/paper/dataset' },
+        { text: 'pix2code(论文复现)', link: '/paper/pix2code' },
+        { text: '常用模型总结', link: '/paper/common_model' }
       ]
     }
   ]
