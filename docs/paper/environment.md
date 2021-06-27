@@ -4,7 +4,20 @@
 
 ### clash 高速上网
 
+clash+blinkload
+
+### github
+
+#### proxy加速访问
+
+```shell
+git config --global https.proxy http://127.0.0.1:1080
+git config --global http.proxy http://127.0.0.1:1080zzhe
+```
 ### 搜狗输入法
+
+搜狗输入法
+https://pinyin.sogou.com/linux/?r=pinyin
 
 ### vscode
 
@@ -35,10 +48,41 @@ sudo snap install clion --classic
 
 ## docker
 
-> docker
+安装docker
+
+```shell
+
+# $ curl -fsSL test.docker.com -o get-docker.sh
+curl -fsSL get.docker.com -o get-docker.sh
+sudo sh get-docker.sh --mirror Aliyun
+# $ sudo sh get-docker.sh --mirror AzureChinaCloud
+
+```
+
+启动docker
+
+```shell
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
+```shell
+sudo groupadd docker
+sudo usermod -aG docker ${USER}
+sudo systemctl restart docker
+
+su root
+
+su ${USER} 
+
+```
 
 ## 常规软件
 
+
+### nodejs
+
+nvm
 
 ## anaconda安装
 
@@ -81,4 +125,10 @@ conda env list
 # conda环境克隆
 conda create -n tensor222 --clone tensorflow  
 conda create -n BBB --clone ~/path # 跨计算机克隆
+```
+
+## pip 换源
+https://mirrors.tuna.tsinghua.edu.cn/help/pypi/
+```shell
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
