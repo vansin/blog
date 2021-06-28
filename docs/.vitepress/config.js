@@ -40,7 +40,7 @@ module.exports = {
         activeMatch: '^/vue/'
       },
       {
-        text: '技术周刊',
+        text: '闻星周刊',
         link: '/weekly/index'
       },
       {
@@ -89,6 +89,7 @@ function getPaperSidebar() {
       children: [
         { text: '方法论', link: '/paper/methodology' },
         { text: '搭建炼丹炉', link: '/paper/environment' },
+        { text: 'docker炼丹炉', link: '/paper/docker' },
         { text: '经典论文参考', link: '/paper/reference' },
         { text: '数据集汇总', link: '/paper/dataset' },
         { text: 'pix2code(论文复现)', link: '/paper/pix2code' },
@@ -190,6 +191,7 @@ function getWeeklySidebar() {
     {
       text: '闻星周刊',
       children: [
+        { text: '20210704', link: '/weekly/20210704' },
         { text: '20210627', link: '/weekly/20210627' },
         { text: '20210613', link: '/weekly/20210613' },
         { text: '20210606', link: '/weekly/20210606' },

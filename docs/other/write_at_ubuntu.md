@@ -1,6 +1,7 @@
-# ubuntu下技术文档高效写作
+# ubuntu下高效写作
 
-在技术文档的写作过程中，不可避免的需要使用图片，下面是使用picgo+阿里云OSS+Flameshot高效使用的最佳实践
+
+在markdown技术文档的写作过程中，不可避免的需要使用图片，下面是使用picgo+阿里云OSS+Flameshot高效使用的最佳实践
 
 ## 安装xclip
 
@@ -11,8 +12,9 @@ sudo apt-get install -y xclip
 
 ## 安装picgo
 
-https://github.com/Molunerfinn/PicGo/releases/
+https://github.com/Molunerfinn/PicGo/releases/  
 
+https://github.com/Molunerfinn/PicGo/releases/download/v2.3.0-beta.6/PicGo-2.3.0-beta.6.AppImage
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210622161459.png)
 
@@ -21,6 +23,13 @@ https://github.com/Molunerfinn/PicGo/releases/
 
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210622161622.png)
+
+修改文件名为picgo，并把所在目录添加到PATH环境变量，在terminal中运行以下代码即可打开软件
+
+```shell
+picgo
+```
+
 
 
 ### 配置图床（阿里云OSS为例）
@@ -61,11 +70,8 @@ sudo apt install flameshot
 - Ctrl+Shift+P 上传到OSS并返回 markdown相应字符串
 
 
-## 语雀
+## 其他成熟产品
 
-当然使用蚂蚁集团体验技术部的语雀直接写文档也是很好的体验
-
-
-## 同步发行
-
+  
+掘金、语雀也是非常好的工具
 

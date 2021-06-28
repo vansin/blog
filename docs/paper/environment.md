@@ -4,7 +4,18 @@
 
 ### clash 高速上网
 
+#### 工具
+
 clash+blinkload
+
+#### 配置
+
+安装好clash之后，把以下配置添加到 .zshre 或者 .bashre中（打开终端就有代理功能）
+
+```shell
+export https_proxy="http://localhost:7890";
+export http_proxy="http://localhost:7890";
+```
 
 ### github
 
@@ -12,7 +23,7 @@ clash+blinkload
 
 ```shell
 git config --global https.proxy http://127.0.0.1:1080
-git config --global http.proxy http://127.0.0.1:1080zzhe
+git config --global http.proxy http://127.0.0.1:1080
 ```
 ### 搜狗输入法
 
@@ -23,7 +34,7 @@ https://pinyin.sogou.com/linux/?r=pinyin
 
 ### jetbrain全家桶 
 
-#### Pycharm
+moonstarwork@mail.shiep.edu.cn
 
 ```shell
 sudo snap install pycharm-professional --classic
@@ -132,3 +143,5 @@ https://mirrors.tuna.tsinghua.edu.cn/help/pypi/
 ```shell
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
+
+## zsh
