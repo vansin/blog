@@ -127,6 +127,7 @@ function getVueSidebar() {
       text: 'Vue2',
       children: [
         { text: 'Vue2基本情况', link: '/vue/vue2/index' },
+        { text: 'vue plugin', link: '/vue/vue2/plugin' },
         { text: '插槽', link: '/vue/vue2/slot' },
         { text: '数据相关 API', link: '/vue/vue2/DataApi' },
         { text: '事件相关API', link: '/vue/vue2/EventApi' },
