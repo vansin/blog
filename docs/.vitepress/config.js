@@ -109,7 +109,8 @@ function getOtherSidebar() {
         { text: '环境变量相关', link: '/other/environment_value' },
         { text: 'docker', link: '/other/docker' },
         { text: 'ubuntu下高效写作', link: '/other/write_at_ubuntu' },
-        { text: '性能监控截图', link: '/other/performance' }
+        { text: '性能监控截图', link: '/other/performance' },
+        { text: '20210629笔记', link: '/web/kkb01' }
       ]
     }
   ]
@@ -171,6 +172,7 @@ function getJavaScriptSidebar() {
         { text: 'ClientStorage', link: '/JavaScript/ClientStorage' },
         { text: 'Proxy', link: '/JavaScript/proxy' },
         { text: 'for', link: '/JavaScript/for' },
+        { text: 'class', link: '/JavaScript/class' },
       ]
     }
   ]
