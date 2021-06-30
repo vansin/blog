@@ -1,7 +1,8 @@
 # ES6 class
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210630080932.png)
 
-类（class）是ECMAScript 中新的基础性语法糖结构，因此刚开始接触时可能会不太习惯。虽然ECMAScript 6 类表面
-上看起来可以支持正式的面向对象编程，但实际上它背后使用的仍然是原型和构造函数的概念。
+类（class）是ECMAScript 中新的基础性语法糖结构，因此刚开始接触时可能会不太习惯。虽然ECMAScript 6 类表面上看起来可以支持正式的面向对象编程，但实际上它背后使用的仍然是原型和构造函数的概念。
+
 
 ## 类定义
 
@@ -206,12 +207,7 @@ let p = new Person();
 console.log(p instanceof Person); // true
 ```
 
-由此可知，可以使用 instanceof 操作符检查一个对象与类构造函数，以确定这个对象是不是类的
-实例。只不过此时的类构造函数要使用类标识符，比如，在前面的例子中要检查 p 和 Person。
-如前所述，类本身具有与普通构造函数一样的行为。在类的上下文中，类本身在使用 new 调用时就
-会被当成构造函数。重点在于，类中定义的 constructor 方法不会被当成构造函数，在对它使用
-instanceof 操作符时会返回 false。但是，如果在创建实例时直接将类构造函数当成普通构造函数来
-使用，那么 instanceof 操作符的返回值会反转：
+由此可知，可以使用 instanceof 操作符检查一个对象与类构造函数，以确定这个对象是不是类的实例。只不过此时的类构造函数要使用类标识符，比如，在前面的例子中要检查 p 和 Person。如前所述，类本身具有与普通构造函数一样的行为。在类的上下文中，类本身在使用 new 调用时就会被当成构造函数。重点在于，类中定义的 constructor 方法不会被当成构造函数，在对它使用instanceof 操作符时会返回 false。但是，如果在创建实例时直接将类构造函数当成普通构造函数来使用，那么 instanceof 操作符的返回值会反转：
 
 ```js
 class Person {} 
@@ -403,7 +399,7 @@ class Person {
 console.log(Person.create()); // Person { age_: ... }
 ```
 
-#### 4. 非函数原型和类成员
+### 4. 非函数原型和类成员
 
 
 虽然类定义并不显式支持在原型或类上添加成员数据，但在类定义外部，可以手动添加：
@@ -699,8 +695,188 @@ console.log(new Van()); // {}
 
 ### 3. 抽象基类
 
+有时候可能需要定义这样一个类，它可供其他类继承，但本身不会被实例化。虽然 ECMAScript 没有专门支持这种类的语法 ，但通过 new.target 也很容易实现。new.target 保存通过 new 关键字调用的类或函数。通过在实例化时检测 new.target 是不是抽象基类，可以阻止对抽象基类的实例化：
+
+```js
+
+// 抽象基类 
+class Vehicle { 
+ constructor() { 
+ console.log(new.target); 
+ if (new.target === Vehicle) { 
+ throw new Error('Vehicle cannot be directly instantiated');
+} 
+ } 
+} 
+// 派生类
+class Bus extends Vehicle {} 
+new Bus(); // class Bus {} 
+new Vehicle(); // class Vehicle {} 
+// Error: Vehicle cannot be directly instantiated
+
+```
+
+另外，通过在抽象基类构造函数中进行检查，可以要求派生类必须定义某个方法。因为原型方法在调用类构造函数之前就已经存在了，所以可以通过 this 关键字来检查相应的方法：
+
+
+```js
+// 抽象基类
+class Vehicle { 
+ constructor() { 
+ if (new.target === Vehicle) { 
+ throw new Error('Vehicle cannot be directly instantiated'); 
+ } 
+ if (!this.foo) { 
+ throw new Error('Inheriting class must define foo()'); 
+ } 
+ console.log('success!'); 
+ } 
+} 
+// 派生类
+class Bus extends Vehicle { 
+ foo() {} 
+} 
+// 派生类
+class Van extends Vehicle {} 
+new Bus(); // success! 
+new Van(); // Error: Inheriting class must define foo()
+```
 
 ### 4. 继承内置类型
+ES6 类为继承内置引用类型提供了顺畅的机制，开发者可以方便地扩展内置类型：
 
+```js
+
+class SuperArray extends Array { 
+ shuffle() { 
+ // 洗牌算法
+ for (let i = this.length - 1; i > 0; i--) { 
+ const j = Math.floor(Math.random() * (i + 1)); 
+ [this[i], this[j]] = [this[j], this[i]]; 
+ } 
+ } 
+}
+
+let a = new SuperArray(1, 2, 3, 4, 5); 
+console.log(a instanceof Array); // true 
+console.log(a instanceof SuperArray); // true
+
+console.log(a); // [1, 2, 3, 4, 5] 
+a.shuffle(); 
+console.log(a); // [3, 1, 4, 5, 2]
+
+```
+
+
+有些内置类型的方法会返回新实例。默认情况下，返回实例的类型与原始实例的类型是一致的：
+
+```js
+class SuperArray extends Array {} 
+let a1 = new SuperArray(1, 2, 3, 4, 5); 
+let a2 = a1.filter(x => !!(x%2)) 
+console.log(a1); // [1, 2, 3, 4, 5] 
+console.log(a2); // [1, 3, 5] 
+console.log(a1 instanceof SuperArray); // true 
+console.log(a2 instanceof SuperArray); // true
+```
+
+如果想覆盖这个默认行为，则可以覆盖 Symbol.species 访问器，这个访问器决定在创建返回的实例时使用的类：
+
+```js
+
+class SuperArray extends Array { 
+ static get [Symbol.species]() { 
+ return Array; 
+ } 
+} 
+let a1 = new SuperArray(1, 2, 3, 4, 5); 
+let a2 = a1.filter(x => !!(x%2)) 
+console.log(a1); // [1, 2, 3, 4, 5] 
+console.log(a2); // [1, 3, 5] 
+console.log(a1 instanceof SuperArray); // true 
+console.log(a2 instanceof SuperArray); // false
+
+```
 
 ### 5. 类混入
+
+把不同类的行为集中到一个类是一种常见的 JavaScript 模式。虽然 ES6 没有显式支持多类继承，但通过现有特性可以轻松地模拟这种行为。
+
+
+> Object.assign()方法是为了混入对象行为而设计的。只有在需要混入类的行为时才有必要自己实现混入表达式。如果只是需要混入多个对象的属性，那么使用Object.assign()就可以了。
+
+
+在下面的代码片段中，extends 关键字后面是一个 JavaScript 表达式。任何可以解析为一个类或一个构造函数的表达式都是有效的。这个表达式会在求值类定义时被求值：
+
+```js
+
+class Vehicle {} 
+function getParentClass() { 
+ console.log('evaluated expression'); 
+ return Vehicle; 
+} 
+class Bus extends getParentClass() {}
+
+// 可求值的表达式
+
+```
+
+混入模式可以通过在一个表达式中连缀多个混入元素来实现，这个表达式最终会解析为一个可以被继承的类。如果 Person 类需要组合 A、B、C，则需要某种机制实现 B 继承 A，C 继承 B，而 Person再继承 C，从而把 A、B、C 组合到这个超类中。实现这种模式有不同的策略。
+
+一个策略是定义一组“可嵌套”的函数，每个函数分别接收一个超类作为参数，而将混入类定义为这个参数的子类，并返回这个类。这些组合函数可以连缀调用，最终组合成超类表达式：
+
+
+```js
+class Vehicle {} 
+let FooMixin = (Superclass) => class extends Superclass { 
+ foo() { 
+ console.log('foo'); 
+ } 
+}; 
+let BarMixin = (Superclass) => class extends Superclass { 
+ bar() { 
+ console.log('bar'); 
+ } 
+}; 
+let BazMixin = (Superclass) => class extends Superclass { 
+ baz() { 
+ console.log('baz'); 
+ } 
+}; 
+class Bus extends FooMixin(BarMixin(BazMixin(Vehicle))) {} 
+let b = new Bus(); 
+b.foo(); // foo 
+b.bar(); // bar 
+b.baz(); // baz
+```
+
+通过写一个辅助函数，可以把嵌套调用展开
+
+```js
+class Vehicle {} 
+let FooMixin = (Superclass) => class extends Superclass { 
+ foo() { 
+ console.log('foo'); 
+ } 
+}; 
+let BarMixin = (Superclass) => class extends Superclass { 
+ bar() { 
+ console.log('bar'); 
+ } 
+}; 
+let BazMixin = (Superclass) => class extends Superclass { 
+ baz() { 
+ console.log('baz'); 
+ } 
+}; 
+function mix(BaseClass, ...Mixins) { 
+ return Mixins.reduce((accumulator, current) => current(accumulator), BaseClass); 
+} 
+class Bus extends mix(Vehicle, FooMixin, BarMixin, BazMixin) {} 
+let b = new Bus(); 
+b.foo(); // foo 
+b.bar(); // bar 
+b.baz(); // baz
+```
+
+>很多 JavaScript 框架（特别是 React）已经抛弃混入模式，转向了组合模式（把方法提取到独立的类和辅助对象中，然后把它们组合起来，但不使用继承）。这反映了那个众所周知的软件设计原则：“组合胜过继承（composition over inheritance）。”这个设计原则被很多人遵循，在代码设计中能提供极大的灵活性。
