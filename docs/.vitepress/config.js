@@ -110,9 +110,14 @@ function getOtherSidebar() {
         { text: 'docker', link: '/other/docker' },
         { text: 'ubuntu下高效写作', link: '/other/write_at_ubuntu' },
         { text: '性能监控截图', link: '/other/performance' },
-        { text: '20210629笔记', link: '/web/kkb01' }
       ]
-    }
+    },    
+    {
+      text: '开课吧Web全栈笔记&总结',
+      children: [
+        { text: 'mini-vue-router', link: '/other/kkb/kkb01' }
+      ]
+    },
   ]
 }
 function getVueSidebar() {

@@ -1,22 +1,85 @@
-# 20210629
+# mini-VueRouter
 
-## 前提知识
+## 前置基础
 
 - Vue plugin
-- 渲染函数
+- [渲染函数](https://cn.vuejs.org/v2/guide/render-function.html)
 - 数据响应式 Vue.util
-- ES6语法
+- ES6语法class语法
 
-## 
 
-紧密vue的功能
+## mini-VueRouter
+
+[Vue Router](https://router.vuejs.org/)
+
+Vue Router和Vue强耦合，手写一个mini-VueRouter
+
+- 理解VueRouter原理
+- 强化JavaScript基础
+
+
+### VueRouter核心步骤
+
+在实现mini-VueRouter之前，先了解以下VueRouter的核心步骤
+
+- 步骤⼀：使⽤vue-router插件，router.js
+
+```js
+import Router from 'vue-router'
+Vue.use(Router)
+```
+
+- 步骤⼆：创建Router实例，router.js
+
+```js
+export default new Router({...})
+```
+
+- 步骤三：在根组件上添加该实例，main.js
+
+```js
+import router from './router'
+new Vue({
+ router,
+}).$mount("#app");
+```
+
+- 步骤四：添加路由视图，App.vue
+
+```js
+<router-view></router-view>
+<router-link to="/">Home</router-link>
+<router-link to="/about">About</router-link>
+this.$router.push('/')
+this.$router.push('/about')
+```
+- 导航
+
+
+### 需求分析
+
+- spa页面不能刷新
+  - hash#/about
+  - History api/about
+- 根据url显示对应的内容
+  - router-view
+  - 数据响应式：current变量持有url地址，一旦变化，动态重新执行render
+
+### 任务
+
+- 实现一个插件
+  - 实现VueRouter类
+    - 处理路由选项
+    - 监控url变化，hashchange
+    - 响应这个变化
+  - 实现插件install方法
+    - $router注册
+    - 两个全局组件
 
 ## Vuex
 
 Vuex集中式存储管理应用的所有组件的状态。
-
 在store中存在的数据 应该是 响应式的。
-
 
 ### 核心概念
 
@@ -129,8 +192,6 @@ export default { Store, install }
 ### 思考拓张
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210629222044.png)
-
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210629222104.png)
-
 
 - 嵌套路由问题
