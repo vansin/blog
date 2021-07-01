@@ -2,7 +2,7 @@
 
 
 ::: warning WARNING
-使用 vitepress写技术文档
+使用 vitepress写技术文档,部署于阿里云FaaS
 :::
 
 
@@ -16,8 +16,7 @@
 ```javascript
 const vansin = new Engineer()
 vansin.name('闻星vansin')
-vansin.stack(['Vue3全家桶', 'Python Flask', 'TableStore', 'Aliyun FaaS'])
+vansin.stack(['Vue全家桶', 'Python Flask', 'TableStore', 'Aliyun FaaS'])
 ```
-
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_imgvansin.png)
