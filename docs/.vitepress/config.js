@@ -48,7 +48,7 @@ module.exports = {
         link: 'other/index'
       },
       {
-        text: 'paper',
+        text: 'paper（前端智能化）',
         link: 'paper/index'
       },
 
@@ -85,17 +85,30 @@ function getLeetcodeSidebar() {
 function getPaperSidebar() {
   return [
     {
-      text: '科研Paper',
+      text: '前端智能化调研',
+      children: [
+        { text: '经典论文参考', link: '/paper/reference' },
+        { text: '前端智能化落地调研', link: '/paper/front-end-intelligence-research' },
+        { text: '数据集汇总', link: '/paper/dataset' },
+        { text: '常用模型总结', link: '/paper/common_model' }
+      ]
+    },
+    {
+      text: '科研方法论',
       children: [
         { text: '方法论', link: '/paper/methodology' },
         { text: '搭建炼丹炉', link: '/paper/environment' },
-        { text: 'docker炼丹炉', link: '/paper/docker' },
-        { text: '经典论文参考', link: '/paper/reference' },
-        { text: '数据集汇总', link: '/paper/dataset' },
-        { text: 'pix2code(论文复现)', link: '/paper/pix2code' },
-        { text: '常用模型总结', link: '/paper/common_model' }
+        { text: 'docker炼丹炉', link: '/paper/docker' }
       ]
-    }
+    },
+    {
+      text: '论文复现',
+      children: [
+        { text: 'pix2code(论文复现)', link: '/paper/pix2code' },
+      ]
+    },
+
+
   ]
 }
 function getOtherSidebar() {

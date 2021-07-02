@@ -11,7 +11,7 @@
 MVVM架构的三要素
 
 - 数据响应式
-- 模板引起
+- 模板引擎
 - 渲染过程
 
 ## 数据响应式原理
@@ -69,7 +69,7 @@ a[1] 生效
 判断 attrName是否式指令或者
 
 
-```js``````````````````````````````````````````
+```js
 class Watcher {
     constructor(vm, key, updateFn) {
         this.vm = vm

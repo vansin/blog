@@ -1,11 +1,19 @@
 # docker搭建深度学习炼丹炉
 
+
+在复现多篇论文时是否遇到以下情况
+  
+- 复现多篇论文时所依赖的cuda版本等环境不一样
+- ubunt环境崩了之后，总是要重装系统，效率低下
+
 使用docker搭建深度学习炼丹炉
 
 优势：环境崩了之后不需要繁琐的重装系统，仅需要重新运行容器  
 劣势：docker上手成本，debug不是很方便
 
 ## docker安装
+
+[更多详细过程参考](https://yeasy.gitbook.io/docker_practice/install/ubuntu)
 
 ### 脚本安装方法
 
@@ -55,7 +63,7 @@ docker run --rm hello-world
 
 ## NVIDIA Container Toolkit
 
-NVIDIA容器架构
+NVIDIA容器架构, windows用户不支持
 
 [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker)
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210628142255.png)
@@ -114,20 +122,44 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 ## [tensorflow-docker](https://www.tensorflow.org/install/docker?hl=zh-cn)
 
 
-https://hub.docker.com/r/tensorflow/tensorflow/
+### TensorFlow安装
 
-dockerhub中有各种版本的tensorflow，复现代码时只要选择对应的版本后docker pull就行
+[dockerhub](https://hub.docker.com/r/tensorflow/tensorflow/)中有各种版本的tensorflow，复现代码时只要选择对应的版本后docker pull就行
 
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702085619.png)
+
+### 其他依赖安装
+
+新建一个Dockerfile， 把类似OpenCV等其他依赖写到Dockerfile里面，docker build镜像之后便可使用
+
+```dockerfile
+FROM tensorflow/tensorflow:1.4.0-gpu-py3
+RUN pip install Keras==2.1.2 \
+    && pip install numpy==1.13.3 \
+    && pip install opencv-python==3.3.0.10 \
+    && pip install h5py==2.7.1
+
+RUN apt-get update \
+    && apt-get install -y libsm6 \
+    && apt-get install -y libxrender1 \
+    && apt-get install -y libxext-dev
+```
+
+运行以下命令会发现，build过程会卡在半路，build的
+
+
+
+Dockerfile如果包含apt，从国外源中安装依赖的命令
+
+```shell
+docker build -t .
+```
 
 ## pytorch-docker
 
-
 https://hub.docker.com/r/pytorch/pytorch/tags?page=1&ordering=last_updated
 
-
-
 ## pycharm调试docker和运行docker
-
 
 
 
