@@ -30,7 +30,7 @@ module.exports = {
         activeMatch: '^/JavaScript/'
       },
       {
-        text: 'paper（前端智能化）',
+        text: 'paper(前端智能化)',
         link: 'paper/index'
       },
       {
