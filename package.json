@@ -6,6 +6,7 @@
   "scripts": {
     "docs:dev": "vitepress dev docs --port 9000",
     "docs:build": "vitepress build docs",
+    "docs:deploy": "vitepress build docs && fun deploy -y",
     "docs:serve": "vitepress serve docs"
   },
   "dependencies": {
