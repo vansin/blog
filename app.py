@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Response, send_file
 
 app = Flask(__name__, static_folder='docs/.vitepress/dist/assets/',
             static_url_path='/assets/', template_folder='docs/.vitepress/dist')
@@ -9,12 +9,14 @@ app = Flask(__name__, static_folder='docs/.vitepress/dist/assets/',
 def index(path):
     print(path)
 
+    if 'vansin.png' in path:
+        return send_file("./docs/img/vansin.png", mimetype='image/gif')
+
     if path == '':
         return render_template('index.html')
     else:
         if '.html' not in path:
             path += '.html'
-
         return render_template(path)
         # return render_template(path+'.html')
 
