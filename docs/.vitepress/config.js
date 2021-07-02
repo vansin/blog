@@ -23,21 +23,24 @@ module.exports = {
     // },
 
     nav: [
-      { text: '技术博客', link: '/', activeMatch: '^/$|^/guide/' },
-      {
-        text: '数据结构与算法',
-        link: '/leetcode/index',
-        activeMatch: '^/vue/'
-      },
+      { text: '主页', link: '/' },
       {
         text: 'JavaScript',
         link: '/JavaScript/index',
         activeMatch: '^/JavaScript/'
       },
       {
+        text: 'paper（前端智能化）',
+        link: 'paper/index'
+      },
+      {
         text: 'Vue',
         link: '/vue/index',
         activeMatch: '^/vue/'
+      },
+      {
+        text: '数据结构与算法',
+        link: '/leetcode/index',
       },
       {
         text: '闻星周刊',
@@ -47,11 +50,6 @@ module.exports = {
         text: '其他',
         link: 'other/index'
       },
-      {
-        text: 'paper（前端智能化）',
-        link: 'paper/index'
-      },
-
       {
         text: 'Release Notes',
         link: 'https://github.com/vansin'
@@ -66,7 +64,7 @@ module.exports = {
       '/vue/': getVueSidebar(),
       '/leetcode/': getLeetcodeSidebar(),
       '/paper/': getPaperSidebar(),
-      '/': getGuideSidebar()
+      // '/': getGuideSidebar()
     }
   }
 }
