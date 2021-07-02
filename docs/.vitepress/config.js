@@ -95,7 +95,7 @@ function getPaperSidebar() {
       text: '科研方法论',
       children: [
         { text: '方法论', link: '/paper/methodology' },
-        { text: '搭建炼丹炉', link: '/paper/environment' },
+        { text: 'Ubuntu搭建炼丹炉', link: '/paper/environment' },
         { text: 'docker炼丹炉', link: '/paper/docker' }
       ]
     },
