@@ -1,24 +1,29 @@
-# 数组和链表
+# 数组和链表类题目
 
-## 理论
+数组和链表是其他树和图等高级数据结构的底层数据结构，本文来总结一下数组和链表刷题的基本套路。
 
-### Array
+在内存上时连续存储的，方便索引直接访问，不方便增删
 
 - Access: O(1)
 - Insert: 平均O(n)
 - Delete: 平均O(n)
 
-### Linked List
-
-地址和值
+链表所存储的数据在内存中是分散的，需要额外的存储空间存储下一个节点的地址，插入删除效率较高，无法通过一个索引算出对应元素的地址。
 
 - Insert O(1)
 - Delete O(1)
 
-## 例题 
 
+涉及到链表的题目，先在纸上画出步骤，然后在动手写代码
 
-### [reverse-linked-list](https://leetcode-cn.com/problems/reverse-linked-list/)
+## [reverse-linked-list](https://leetcode-cn.com/problems/reverse-linked-list/)
+
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210703094523.png)
+
+### 双指针法
+
 
 ```js
 /**
@@ -50,6 +55,10 @@ var reverseList = function(head) {
 
 ```
 
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+<p align="center">代码对应迭代图</p>
+
+
 Python赋值比较特立独行
 
 ```py
@@ -68,7 +77,12 @@ class Solution:
 
 ```
 
-### [swap-nodes-in-pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+### 递归反转法
+
+
+
+
+## [swap-nodes-in-pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 
 
 自行实现
@@ -165,7 +179,7 @@ class Solution:
         return self.next
 ```
 
-### [linked-list-cycle](https://leetcode-cn.com/problems/linked-list-cycle/)
+## [linked-list-cycle](https://leetcode-cn.com/problems/linked-list-cycle/)
 
 - 限时法
 - 集合法
@@ -204,7 +218,7 @@ var hasCycle = function(head) {
 
 ```
 
-### [linked-list-cycle-ii](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+## [linked-list-cycle-ii](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 
 
-### [reverse-nodes-in-k-group](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+## [reverse-nodes-in-k-group](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
