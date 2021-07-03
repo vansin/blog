@@ -1,15 +1,31 @@
 # docker搭建深度学习炼丹炉
 
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/dang1.png)
 
-在复现多篇论文时是否遇到以下情况
+## 什么场景下需要？
+
+在深度学习的炼丹过程中，业界普遍使用的TensorFlow和Pytorch往往需要通过NVIDIA的GPU进行模型训练的加速。其并行加速最重要的依赖是NVIDIA开发的**cuda-toolkit**软件包
+
+学术界paper对应代码中依赖的TensorFlow和Pytorch的版本和其所依赖往往错综复杂，Anaconda的虚拟环境虽然能解决TensorFlow和Pytorch版本不同的问题，却不能方便解决**cuda-toolkit**版本不同的问题，如果多篇论文复现或实现所依赖的**cuda-toolkit**的版本有冲突，往往需要重装系统，费事费力。
+
+本文通过docker在Ubuntu等Linux上搭建深度学习炼丹炉的方法，能好的解决以上问题，让科研工作者把时间投入更重要的算法和模型优化上。
   
-- 复现多篇论文时所依赖的cuda版本等环境不一样
-- ubunt环境崩了之后，总是要重装系统，效率低下
+## 原理
 
-使用docker搭建深度学习炼丹炉
 
-优势：环境崩了之后不需要繁琐的重装系统，仅需要重新运行容器  
-劣势：docker上手成本，debug不是很方便
+用户只要在Linux系统中安装好显卡驱动，不需要安装**cuda-toolkit**，**cuda-toolkit**、TensorFlow和Pytorch都在docker容器中
+
+[NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker)
+
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210628142255.png)
+<p align="center">docker炼丹炉的原理架构图</p>
+
+
+## 系统要求
+
+gpu版本的docker炼丹炉支持以下OS，基本上只支持Linux
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702191954.png)
 
 ## docker安装
 
@@ -65,8 +81,7 @@ docker run --rm hello-world
 
 NVIDIA容器架构, windows用户不支持
 
-[NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker)
-![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210628142255.png)
+
 
 ### Ubuntu安装
 
@@ -145,11 +160,8 @@ RUN apt-get update \
     && apt-get install -y libxext-dev
 ```
 
-运行以下命令会发现，build过程会卡在半路，build的
 
-
-
-Dockerfile如果包含apt，从国外源中安装依赖的命令
+Dockerfile如果包含apt等从国外源中安装依赖的命令，其过程会很慢甚至会卡住，其解决方案可以是挂载代理（挖坑后续文章）或使用阿里云镜像服务的海外机器进行构建（挖坑后续文章）
 
 ```shell
 docker build -t .
@@ -157,9 +169,30 @@ docker build -t .
 
 ## pytorch-docker
 
+pytorch和TensorFlow类似
+
 https://hub.docker.com/r/pytorch/pytorch/tags?page=1&ordering=last_updated
 
 ## pycharm调试docker和运行docker
+
+### 设置Python环境镜像
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702190850.png)
+
+
+### 设置run debug configuration
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702191156.png)
+
+```shell
+--entrypoint -v /home/tml/vansin/paper/pix2code:/opt/project --rm
+```
+
+以上的配置为挂载本地的文夹到docker目录，让训练好的数据保存在本地，而不是docker中
+
+
+打断点之后可以进行debug
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702191431.png)
 
 
 
