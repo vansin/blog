@@ -6,7 +6,7 @@
 
 在深度学习的炼丹过程中，业界普遍使用的TensorFlow和Pytorch往往需要通过NVIDIA的GPU进行模型训练的加速。其并行加速最重要的依赖是NVIDIA开发的**cuda-toolkit**软件包
 
-学术界paper对应代码中依赖的TensorFlow和Pytorch的版本和其所依赖往往错综复杂，Anaconda的虚拟环境虽然能解决TensorFlow和Pytorch版本不同的问题，却不能方便解决**cuda-toolkit**版本不同的问题，如果多篇论文复现或实现所依赖的**cuda-toolkit**的版本有冲突，往往需要重装系统，费事费力。
+学术界paper对应代码中依赖的TensorFlow和Pytorch的版本和其所依赖往往错综复杂，Anaconda的虚拟环境虽然能解决TensorFlow和Pytorch版本不同的问题，却不能方便解决**cuda-toolkit**版本不同的问题，如果多篇论文复现或实现所依赖的**cuda-toolkit**的版本有冲突，往往需要重装系统，费时费力。
 
 本文通过docker在Ubuntu等Linux上搭建深度学习炼丹炉的方法，能好的解决以上问题，让科研工作者把时间投入更重要的算法和模型优化上。
   
