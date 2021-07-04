@@ -145,6 +145,7 @@ function getVueSidebar() {
     {
       text: 'Vue2',
       children: [
+        { text: 'Vue2源码剖析', link: '/vue/vue2/source' },
         { text: 'Vue2基本情况', link: '/vue/vue2/index' },
         { text: 'vue plugin', link: '/vue/vue2/plugin' },
         { text: '插槽', link: '/vue/vue2/slot' },
