@@ -76,6 +76,7 @@ function getLeetcodeSidebar() {
       children: [
         { text: '算法复杂程度', link: '/leetcode/complexity' },
         { text: '数组&链表', link: '/leetcode/array_linklist' },
+        { text: '队列&栈', link: '/leetcode/queue_stack' },
       ]
     }
   ]
