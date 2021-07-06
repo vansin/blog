@@ -1,13 +1,37 @@
 # miniVueRouter
 
-本文
+学习VueRouter的好方式，就是手写一个mini版本的VueRouter，实现VueRouter的基本功能
 
-## 工程准备
+本文主要分为以下两部分
 
+- 使用vue-cli创建含带VueRouter的项目
+- 手写miniVueRouter把VueRouter替代
+
+## VueRouter
+
+### 安装vue-cli
 ```shell
 npm install -g @vue/cli
 npm install -g @vue/cli-service-global
 ```
+
+
+### vue-cli创建新项目
+
+```shell
+vue create hello-world
+```
+
+### 添加VueRouter
+
+```shell
+vue add router
+```
+
+执行以上命令，cli对文件执行了如下操作，Git工具检测到了变化
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210706194150.png)
+
 
 ## VueRouter原理
 
@@ -220,10 +244,7 @@ export default {
 ```
 
 
+
 ```shell
-
 docker run image
-
-
-
 ```

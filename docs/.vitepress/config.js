@@ -130,7 +130,8 @@ function getOtherSidebar() {
       text: '开课吧Web全栈笔记&总结',
       children: [
         { text: 'miniVueRouter', link: '/other/kkb/kkb01' },
-        { text: 'miniVue', link: '/other/kkb/kkb02' }
+        { text: 'miniVue', link: '/other/kkb/kkb02' },
+        { text: 'VDOM diff', link: '/other/kkb/kkb04' }
       ]
     },
   ]
