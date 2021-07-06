@@ -315,7 +315,7 @@ def _heapify_max(x):
 ```
 
 
-## [Kth Largest Element in a Stream](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)
+## 【题目】[Kth Largest Element in a Stream](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)
 
 ### 简要题目
 
@@ -405,4 +405,195 @@ class KthLargest:
 
 ### 题目改编
 
-可以思考以下如果此题改成了求第K小，此题就需要用到最大堆，heapq中没有直接实现部分API，需要自己实现。
+可以思考一下如果此题改成了求第K小，此题就需要用到最大堆，heapq中没有直接实现部分API，需要自己实现。
+
+
+## 【题目】[215. Kth Largest Element in an Array](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+
+### 堆排序方法
+
+```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        
+        return heapq.nlargest(k, nums)[k-1]
+```
+
+### 快速排序方法
+
+```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        
+        # return heapq.nlargest(k, nums)[k-1]
+
+        nums.sort(reverse=True)
+
+        return nums[k-1]
+```
+
+## 【题目】253. Meeting Rooms II
+
+### 暴力解法
+
+超时了
+
+```python
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+
+        the_time_need_rooms = [0]*1000000
+
+        heap = []
+
+        for time_range in intervals:
+            for i in range(time_range[0],time_range[1]):
+                the_time_need_rooms[i]+=1
+
+
+        heapq._heapify_max(the_time_need_rooms)
+        # print(the_time_need_rooms)
+        return the_time_need_rooms[0]
+```
+
+### 最小堆法
+
+```python
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+
+        intervals.sort(key=lambda x:x[0])
+
+        print(intervals)
+
+        minHeap = []
+
+        for start_time, end_time in intervals:
+
+            if minHeap.__len__() == 0 or start_time < minHeap[0]:
+                heapq.heappush(minHeap, end_time)
+
+            else:
+
+                heapq.heappop(minHeap)
+                heapq.heappush(minHeap, end_time)
+
+        return minHeap.__len__()
+```
+
+## 【题目】面试题 17.14. Smallest K LCCI
+
+```python
+class Solution:
+    def smallestK(self, arr: List[int], k: int) -> List[int]:
+        return heapq.nsmallest(k, arr)
+```
+
+
+## 【题目】1094. Car Pooling
+
+
+### 暴力解法
+
+```python
+class Solution:
+    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+
+        trip_location_nums = 1000*[0]
+
+        for num_passengers,start_location, end_location in trips:
+
+            for i in range(start_location, end_location):
+                trip_location_nums[i]+=num_passengers
+
+        max_num_passengers = max(trip_location_nums)
+
+        if max_num_passengers>capacity:
+            return False
+        return True
+```
+
+### 最小堆模拟方法
+
+```python
+import time
+
+class Solution:
+    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+        trips.sort(key=lambda x: x[1])
+        off_dist = []
+        count = 0
+
+
+        for num_passengers, start_location, end_location in trips:
+
+            while off_dist and start_location>=off_dist[0][0]:
+                # 下车咯
+                _, passenger = heapq.heappop(off_dist)
+                count -= passenger
+            
+            count += num_passengers
+
+            if count > capacity:
+                return False
+        
+            heapq.heappush(off_dist,[end_location, num_passengers])
+            print(len(off_dist))
+
+        return True
+```
+
+
+## 【题目】973. K Closest Points to Origin
+
+
+```python
+class Solution:
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+
+
+        def dis_sqr(x):
+            x1 = x[0]
+            y1 = x[1]
+            return x[0]*x[0] + x[1]*x[1]
+
+        return heapq.nsmallest(n=k,iterable=points,key=lambda x:dis_sqr(x))
+```
+
+## 【题目】1167. Minimum Cost to Connect Sticks
+
+哈夫曼树
+
+```python
+class Solution:
+    def connectSticks(self, sticks: List[int]) -> int:
+        cost = 0
+
+        minHeap = sticks
+        heapq.heapify(minHeap)
+
+        while minHeap.__len__() >= 2:
+
+            c1 = heapq.heappop(minHeap)
+            c2 = heapq.heappop(minHeap)
+
+            c3 = c1 + c2
+
+            heapq.heappush(minHeap, c3)
+
+            cost+=c3
+
+        return cost
+
+```
+
+## 【题目】658. Find K Closest Elements
+
+```python
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        
+        ans_list = heapq.nsmallest(n=k, key=lambda a:abs(a-x), iterable=arr)
+        ans_list.sort()
+        return ans_list
+```

@@ -123,6 +123,7 @@ function getOtherSidebar() {
         { text: 'docker', link: '/other/docker' },
         { text: 'ubuntu下高效写作', link: '/other/write_at_ubuntu' },
         { text: '性能监控截图', link: '/other/performance' },
+        { text: 'docker', link: '/paper/docker1' },
       ]
     },    
     {
@@ -148,6 +149,7 @@ function getVueSidebar() {
       children: [
         { text: 'Vue2源码剖析', link: '/vue/vue2/source' },
         { text: 'Vue2基本情况', link: '/vue/vue2/index' },
+        { text: 'miniVueRouter', link: '/vue/vue2/miniVueRouter' },
         { text: 'vue plugin', link: '/vue/vue2/plugin' },
         { text: '插槽', link: '/vue/vue2/slot' },
         { text: '数据相关 API', link: '/vue/vue2/DataApi' },

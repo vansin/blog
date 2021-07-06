@@ -41,7 +41,7 @@ RUN apt-get update \
     && apt-get install -y net-tools 
 ```
 
-```
+```shell
 docker build -t ubuntu:net_tools . 
 ```
 
