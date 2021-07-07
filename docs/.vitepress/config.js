@@ -98,6 +98,7 @@ function getPaperSidebar() {
       text: '科研方法论',
       children: [
         { text: '方法论', link: '/paper/methodology' },
+        { text: '常用工具和网站', link: '/paper/tools' },
         { text: 'Ubuntu搭建炼丹炉', link: '/paper/environment' },
         { text: 'docker炼丹炉', link: '/paper/docker' }
       ]
@@ -108,8 +109,12 @@ function getPaperSidebar() {
         { text: 'pix2code(论文复现)', link: '/paper/pix2code' },
       ]
     },
-
-
+    {
+      text: 'other',
+      children: [
+        { text: '常见概念', link: '/paper/notebook' },
+      ]
+    },
   ]
 }
 function getOtherSidebar() {
