@@ -78,6 +78,7 @@ function getLeetcodeSidebar() {
         { text: '数组&链表', link: '/leetcode/array_linklist' },
         { text: '队列&栈', link: '/leetcode/queue_stack' },
         { text: '优先队列&堆', link: '/leetcode/heap' },
+        { text: 'map&set', link: '/leetcode/map&set' },
       ]
     }
   ]
