@@ -111,9 +111,9 @@ function getPaperSidebar() {
       ]
     },
     {
-      text: 'other',
+      text: '相关基础',
       children: [
-        { text: '常见概念', link: '/paper/notebook' },
+        { text: 'LSTM', link: '/paper/base/LSTM' },
       ]
     },
   ]
