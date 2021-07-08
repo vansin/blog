@@ -79,6 +79,7 @@ function getLeetcodeSidebar() {
         { text: '队列&栈', link: '/leetcode/queue_stack' },
         { text: '优先队列&堆', link: '/leetcode/heap' },
         { text: 'map&set', link: '/leetcode/map&set' },
+        { text: 'tree', link: '/leetcode/Tree' },
       ]
     }
   ]
@@ -161,6 +162,12 @@ function getVueSidebar() {
         { text: '插槽', link: '/vue/vue2/slot' },
         { text: '数据相关 API', link: '/vue/vue2/DataApi' },
         { text: '事件相关API', link: '/vue/vue2/EventApi' },
+      ]
+    },
+    {
+      text: '面试题',
+      children: [
+        { text: 'Vue常见面试题目', link: '/vue/problem' }
       ]
     }
   ]
