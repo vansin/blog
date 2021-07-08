@@ -7,6 +7,24 @@
 - Link List是特殊化的Tree
 - Tree是特殊化的graph
 
+## 树的遍历
+
+### Pre-order
+
+根-左-右
+
+### In-order
+
+左-根-右
+
+### Post-order
+
+左-右-根
+
+### 层次遍历
+
+
+
 
 ## 二叉搜索树（Binary Search Tree）
 
@@ -124,7 +142,7 @@ class Solution:
 
 
 
-## [【LeetCode】235](Lowest Common Ancestor of a Binary Search Tree)
+## [【LeetCode】235.Lowest Common Ancestor of a Binary Search Tree](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 
 ### 递归方法
 
