@@ -80,6 +80,7 @@ function getLeetcodeSidebar() {
         { text: '优先队列&堆', link: '/leetcode/heap' },
         { text: 'map&set', link: '/leetcode/map&set' },
         { text: 'tree', link: '/leetcode/Tree' },
+        { text: 'Divde&Conquer', link: '/leetcode/Divde&Conquer' },
       ]
     }
   ]
