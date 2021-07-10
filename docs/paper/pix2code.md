@@ -2,7 +2,6 @@
 
 https://github.com/vansin/pix2code
 
-
 ## 论文复现炼丹炉搭建
 
 ### 软硬件参数
@@ -30,6 +29,27 @@ docker pull tensorflow/tensorflow:1.4.0-gpu-py3
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210628145232.png)
 
 
+
+
+## 论文前置知识
+
+### DSL
+
+DSL 其实是 Domain Specific Language 的缩写，中文翻译为领域特定语言（下简称 DSL）；而与 DSL 相对的就是 GPL，这里的 GPL 并不是我们知道的开源许可证，而是 General Purpose Language 的简称，即通用编程语言，也就是我们非常熟悉的 Objective-C、Java、Python 以及 C 语言等等。
+
+Wikipedia 对于 DSL 的定义还是比较简单的：A specialized computer language designed for a specific task.
+
+- Regex
+- SQL
+- HTML&CSS
+
+上面的几个例子有着一些共同的特点：
+
+- 没有计算和执行的概念；
+- 其本身并不需要直接表示计算；
+- 使用时只需要声明规则、事实以及某些元素之间的层级和关系；
+
+
 ## 论文内容介绍
 
 ### 摘要
@@ -38,8 +58,7 @@ Transforming a graphical user interface screenshot created by a designer into co
 将设计师创建的图形用户界面截图转化为计算机代码去建立定制的软件、网站和移动应用程序，是软件工程师的一项典型任务。在本文中，我们表明深度学习方法可以用来训练一个端到端的模型来自动从一个单一的输入图像中生成代码，在三个不同的平台（即iOS）上，准确率超过77%。不同的平台（即iOS、Android和基于网络的技术）。
 ### 介绍
 
-
-The process of implementing client-side software based on a Graphical User Interface (GUI) mockupcreated by a designer is the responsibility of developers. Implementing GUI code is, however,time-consuming and prevent developers from dedicating the majority of their time implementing theactual functionality and logic of the software they are building. Moreover, the computer languagesused to implement such GUIs are specific to each target runtime system; thus resulting in tediousand repetitive work when the software being built is expected to run on multiple platforms usingnative technologies. In this paper, we describe a model trained end-to-end with stochastic gradientdescent to simultaneously learns to model sequences and spatio-temporal visual features to generatevariable-length strings of tokens from a single GUI image as input.
+The process of implementing client-side software based on a Graphical User Interface (GUI) mockup created by a designer is the responsibility of developers. Implementing GUI code is, however,time-consuming and prevent developers from dedicating the majority of their time implementing theactual functionality and logic of the software they are building. Moreover, the computer languagesused to implement such GUIs are specific to each target runtime system; thus resulting in tediousand repetitive work when the software being built is expected to run on multiple platforms usingnative technologies. In this paper, we describe a model trained end-to-end with stochastic gradientdescent to simultaneously learns to model sequences and spatio-temporal visual features to generatevariable-length strings of tokens from a single GUI image as input.
 
 基于设计师创建的图形用户界面（GUI）模型来实现客户端软件的过程是开发人员的责任。然而，实现GUI代码是很耗时的，它使开发人员无法将大部分时间用于实现他们正在构建的软件的实际功能和逻辑。此外，用于实现这种GUI的计算机语言是针对每个目标运行系统的；因此，当所构建的软件被期望在使用原生技术的多个平台上运行时，会导致繁琐和重复的工作。在本文中，我们描述了一个用随机梯度修正法进行端到端训练的模型，该模型同时学习了序列和时空视觉特征的建模，以从单一的GUI图像中生成可变长度的标记字符串作为输入。
 
@@ -80,12 +99,12 @@ Figure 1: Overview of the pix2code model architecture. During training, the GUI 
 
 ### pix2code
 
-The task of generating computer code written in a given programming language from a GUI screenshotcan be compared to the task of generating English textual descriptions from a scene photography. Inboth scenarios, we want to produce a variable-length strings of tokens from pixel values. We canthus divide our problem into three sub-problems. First, a computer vision problem of understandingthe given scene (i.e. in this case, the GUI image) and inferring the objects present, their identities,positions, and poses (i.e. buttons, labels, element containers). Second, a language modeling problemof understanding text (i.e. in this case, computer code) and generating syntactically and semanticallycorrect samples. Finally, the last challenge is to use the solutions to both previous sub-problems byexploiting the latent variables inferred from scene understanding to generate corresponding textualdescriptions (i.e. computer code rather than English) of the objects represented by these variables.
+The task of generating computer code written in a given programming language from a GUI screenshotcan be compared to the task of generating English textual descriptions from a scene photography. Inboth scenarios, we want to produce a variable-length strings of tokens from pixel values. We canthus divide our problem into three sub-problems. First, a computer vision problem of understanding the given scene (i.e. in this case, the GUI image) and inferring the objects present, their identities,positions, and poses (i.e. buttons, labels, element containers). Second, a language modeling problem of understanding text (i.e. in this case, computer code) and generating syntactically and semantically correct samples. Finally, the last challenge is to use the solutions to both previous sub-problems by exploiting the latent variables inferred from scene understanding to generate corresponding textual descriptions (i.e. computer code rather than English) of the objects represented by these variables.
 
 从GUI截图中生成以特定编程语言编写的计算机代码的任务，可以与从场景摄影中生成英文文本描述的任务相比较。在这两种情况下，我们都想从像素值中产生一个可变长度的标记字符串。因此，我们可以将我们的问题分为三个子问题。第一，计算机视觉问题，即理解给定的场景（即在这种情况下，GUI图像）并推断出存在的物体、它们的身份、位置和姿势（即按钮、标签、元素容器）。第二，语言建模问题，即理解文本（即在这种情况下，计算机代码）并生成句法和语义正确的样本。最后，最后一个挑战是利用前面两个子问题的解决方案，通过利用从场景理解中推断出的潜在变量来生成这些变量所代表的对象的相应的文本描述（即计算机代码而不是英语）。
 
 
-CNNs are currently the method of choice to solve a wide range of vision problems thanks to theirtopology allowing them to learn rich latent representations from the images they are trained on[16, 11]. We used a CNN to perform unsupervised feature learning by mapping an input image to alearned fixed-length vector; thus acting as an encoder as shown in Figure 1
+CNNs are currently the method of choice to solve a wide range of vision problems thanks to their topology allowing them to learn rich latent representations from the images they are trained on[16, 11]. We used a CNN to perform unsupervised feature learning by mapping an input image to alearned fixed-length vector; thus acting as an encoder as shown in Figure 1
 
 CNN目前是解决广泛的视觉问题的首选方法，这要归功于它的拓扑结构，允许它们从被训练的图像中学习丰富的潜在表示[16, 11]。我们使用CNN来进行无监督的特征学习，将输入的图像映射到一个固定长度的向量，从而充当一个编码器，如图1所示。
 

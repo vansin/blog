@@ -81,6 +81,7 @@ function getLeetcodeSidebar() {
         { text: 'map&set', link: '/leetcode/map&set' },
         { text: 'tree', link: '/leetcode/Tree' },
         { text: 'Divde&Conquer', link: '/leetcode/Divde&Conquer' },
+        { text: 'BSF&DFS', link: '/leetcode/BFS&DFS' },
       ]
     }
   ]
@@ -140,6 +141,12 @@ function getOtherSidebar() {
         { text: 'miniVueRouter', link: '/other/kkb/kkb01' },
         { text: 'miniVue', link: '/other/kkb/kkb02' },
         { text: 'VDOM diff', link: '/other/kkb/kkb04' }
+      ]
+    },
+    {
+      text: '思考&随笔',
+      children: [
+        { text: '一些处世智慧', link: '/other/vanthinking/wisdom' },
       ]
     },
   ]
