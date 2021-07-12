@@ -1,8 +1,11 @@
 # 初识机器学习
 
-7月12日-7月18日(机器学习)
-
 ## What is Machine Learning
+
+
+Tom Mitchell(1998)Well-posed learning Problem: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210712134639.png)
 
 ## 机器学习的应用
 
@@ -14,9 +17,13 @@
 
 ## 机器学习的分类
 
-- 监督学习
-- 非监督学习
-- 强化学习
 
-regression problem（回归问题）
-classification problem (分类问题)
+### 主要分类
+
+- supervised learning (监督学习)
+- unsupervised learning (无监督学习)
+
+## 其他
+
+- reinforcement learning(强化学习)
+- recommend system

@@ -82,12 +82,21 @@ function getLeetcodeSidebar() {
         { text: 'tree', link: '/leetcode/Tree' },
         { text: 'Divde&Conquer', link: '/leetcode/Divde&Conquer' },
         { text: 'BSF&DFS', link: '/leetcode/BFS&DFS' },
+        { text: '二分法', link: '/leetcode/bisearch' },
       ]
     }
   ]
 }
 function getPaperSidebar() {
   return [
+    {
+      text: '机器学习',
+      children: [
+        { text: '初识机器学习', link: '/paper/machine_learning_course/index' },
+        { text: '监督学习', link: '/paper/machine_learning_course/supervised_learning' },
+        { text: '监督学习', link: '/paper/machine_learning_course/unsupervised_learning' },
+      ]
+    },
     {
       text: '前端智能化调研',
       children: [

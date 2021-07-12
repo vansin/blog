@@ -233,3 +233,208 @@ class Solution:
 
             self._gen(left, right+1, n, result+")")
 ```
+
+
+## [4.【LeetCode】51. N-Queens](https://leetcode-cn.com/problems/n-queens/)
+
+```python 
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+
+        if n<1: return []
+        self.result = []
+        self.cols = set(); self.pie = set(); self.na = set()
+        self.DFS(n, 0, [])
+        return self._generate_result(n)
+
+
+    def DFS(self, n, row, cur_state):
+
+        if row>=n:
+            self.result.append(cur_state)
+            return
+
+        for col in range(n):
+
+            if col in self.cols or row+col in self.pie or row-col in self.na:
+
+                continue
+            
+            self.cols.add(col)
+            self.pie.add(row+col)
+            self.na.add(row-col)
+
+            self.DFS(n, row+1, cur_state+[col])
+
+            self.cols.remove(col)
+            self.pie.remove(row+col)
+            self.na.remove(row-col)
+
+    def _generate_result(self, n):
+
+        return [["."*i+"Q" + "."*(n-i-1) for i in sol] for sol in self.result]
+```
+
+## [5.【LeetCode】52. N-Queens II](https://leetcode-cn.com/problems/n-queens-ii/)
+
+
+```python
+class Solution:
+    def totalNQueens(self, n: int) -> int:
+
+
+        if n<1: return 0
+        self.result = []
+        self.cols = set(); self.pie = set(); self.na = set()
+        self.DFS(n, 0, [])
+        return self._generate_result(n).__len__()
+
+
+    def DFS(self, n, row, cur_state):
+
+        if row>=n:
+            self.result.append(cur_state)
+            return
+
+        for col in range(n):
+
+            if col in self.cols or row+col in self.pie or row-col in self.na:
+
+                continue
+            
+            self.cols.add(col)
+            self.pie.add(row+col)
+            self.na.add(row-col)
+
+            self.DFS(n, row+1, cur_state+[col])
+
+            self.cols.remove(col)
+            self.pie.remove(row+col)
+            self.na.remove(row-col)
+
+
+    
+    def _generate_result(self, n):
+
+        return [["."*i+"Q" + "."*(n-i-1) for i in sol] for sol in self.result]
+```
+
+
+
+## [6.【LeetCode】36. Valid Sudoku](https://leetcode-cn.com/problems/valid-sudoku/)
+
+```python
+
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+
+        self.col = [set() for i in range(9)]
+        self.row =  [set() for i in range(9)]
+        self.mini =[[set() for i in range(3)] for j in range(3)]
+
+        for i in range(9):
+            for j in range(9):
+
+                val = board[i][j]
+
+                if val == '.':
+                    continue
+
+                mini_i = int(i/3)
+                mini_j = int(j/3)
+
+                if val in self.col[j] or val in self.row[i] or val in self.mini[mini_i][mini_j]:
+                
+                    return False
+                else:
+
+                    self.row[i].add(val)
+                    self.col[j].add(val)
+                    self.mini[mini_i][mini_j].add(val)
+
+        return True
+```
+
+
+## [7.【LeetCode】37. Sudoku Solver](https://leetcode-cn.com/problems/sudoku-solver/)
+
+```python
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+
+
+        self.col = [set() for i in range(9)]
+        self.row =  [set() for i in range(9)]
+        self.mini =[[set() for i in range(3)] for j in range(3)]
+        self.board = board
+
+
+        for i in range(9):
+            for j in range(9):
+                val = board[i][j]
+                if val == '.':
+                    continue
+                mini_i = int(i/3)
+                mini_j = int(j/3)
+                self.row[i].add(val)
+                self.col[j].add(val)
+                self.mini[mini_i][mini_j].add(val)
+
+
+
+        self.ans = None
+        self._DFS(0,0)
+        return self.ans
+
+    def _DFS(self,i,j):
+
+        if (i>8):
+            self.ans = copy.deepcopy(self.board)
+            # print(self.ans)
+            return self.ans
+
+        mini_i = int(i/3)
+        mini_j = int(j/3)
+
+        # 
+        if (j==8):
+            next_i = i + 1
+            next_j = 0
+        else:
+            next_i = i
+            next_j = j+1
+        
+
+        val = self.board[i][j]
+
+        if val == ".":
+            for num in range(1,10):
+
+                num_str = str(num)
+
+                if num_str in self.col[j] or num_str in self.row[i] or num_str in self.mini[mini_i][mini_j]:
+                    continue
+
+                self.row[i].add(num_str)
+                self.col[j].add(num_str)
+                self.mini[mini_i][mini_j].add(num_str)
+                self.board[i][j] = num_str
+
+                result = self._DFS(next_i, next_j)
+
+                if result:
+                    return result
+                
+                self.board[i][j] = "."
+                self.row[i].remove(num_str)
+                self.col[j].remove(num_str)
+                self.mini[mini_i][mini_j].remove(num_str)
+
+        else:
+
+            result = self._DFS(next_i, next_j)
+            return result
+```
