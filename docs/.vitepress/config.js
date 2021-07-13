@@ -96,6 +96,7 @@ function getPaperSidebar() {
         { text: '监督学习', link: '/paper/machine_learning_course/supervised_learning' },
         { text: '无监督学习', link: '/paper/machine_learning_course/unsupervised_learning' },
         { text: '线性回归与梯度下降', link: '/paper/machine_learning_course/LinearRegressionWithOneVariables' },
+        { text: '线性代数及其基本运算实现', link: '/paper/machine_learning_course/LinearAlgebra' },
       ]
     },
     {

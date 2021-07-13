@@ -2,10 +2,18 @@
 
 ## What is Machine Learning
 
+### Define1
 
-Tom Mitchell(1998)Well-posed learning Problem: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.
+Machine learning is the field of study that gives computers the ability to learn without being explicitly programmed.
 
-![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210712134639.png)
+
+### Define2
+
+A computer program is said to learn from experience E with respect to some task T and some performance measure P if its performance on T, as measured by P, improves with experience E. Suppose we feed a learning algorithm a lot of historical weather data, and have it learn to predict weather. In this setting, what is T?
+
+- Experience E
+- Task T
+- Performance P
 
 ## 机器学习的应用
 
