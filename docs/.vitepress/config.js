@@ -94,7 +94,8 @@ function getPaperSidebar() {
       children: [
         { text: '初识机器学习', link: '/paper/machine_learning_course/index' },
         { text: '监督学习', link: '/paper/machine_learning_course/supervised_learning' },
-        { text: '监督学习', link: '/paper/machine_learning_course/unsupervised_learning' },
+        { text: '无监督学习', link: '/paper/machine_learning_course/unsupervised_learning' },
+        { text: '线性回归与梯度下降', link: '/paper/machine_learning_course/LinearRegressionWithOneVariables' },
       ]
     },
     {

@@ -23,3 +23,8 @@ http://corejournal.lib.sjtu.edu.cn/
 ## 中文学术期刊论文投稿平台
 
 https://cb.cnki.net/journal/Search.aspx?navi=I
+
+
+https://github.com/HCIILAB?tab=repositories
+
+https://dblp.uni-trier.de/search?q=lianwen%20jin
