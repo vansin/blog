@@ -3,6 +3,19 @@ module.exports = {
   title: '闻星',
   description: '闻星',
 
+  // markdown: {
+  //   // options for markdown-it-anchor
+  //   // anchor: { permalink: false },
+
+  //   // options for markdown-it-toc
+  //   toc: { includeLevel: [1,2,3] },
+
+  //   // config: (md) => {
+  //   //   // use more markdown-it plugins!
+  //   //   md.use(require('markdown-it-xxx'))
+  //   // }
+  // },
+
   themeConfig: {
     repo: 'vansin/blog',
     docsDir: 'docs',
