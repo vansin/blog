@@ -256,6 +256,41 @@ regular latin Datasets
 - ICDAR 2013(IC13)
 - Street View House Number(SVHN)
 
+Irregular Latin Datasets
+
+- StreetViewText-Perspective(SVT-P)
+- CUTE80(CUTE)
+- ICDAR 2015(IC15)
+- COCO-Text
+- Total-Text
+
+Multilingual Datasets
+
+- Reading Chinese Text in the Wild(RCTW-17)
+- Muti-Type Web Images(MTWI)
+- Chinese Text in the Wild(CTW)
+- SCUT-CTW1500
+- Large-Scale Street View Text(LSVT)
+- Arbitrary-Shaped Text(ArT)
+- Reading Chinese Text on Signboard(ReCTS-25k)
+- Multi-lingual Text(MLT-2019)
+
+
+### Evaluation protocols
+
+#### Evaluation Protocols for Latin Text. Recognition protocols
+
+- WAR
+- WER
+
+#### End-to-End Protocols
+
+- Strongly Contextualised(S)
+
+#### End-to-End Protocols
+
+
+
 ## discussion and future directions
 
 #### Generalization
