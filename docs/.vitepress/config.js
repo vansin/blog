@@ -83,6 +83,7 @@ function getLeetcodeSidebar() {
         { text: 'Divde&Conquer', link: '/leetcode/Divde&Conquer' },
         { text: 'BSF&DFS', link: '/leetcode/BFS&DFS' },
         { text: '二分法', link: '/leetcode/bisearch' },
+        { text: '字典树', link: '/leetcode/Trie' },
       ]
     }
   ]
@@ -97,6 +98,12 @@ function getPaperSidebar() {
         { text: '无监督学习', link: '/paper/machine_learning_course/unsupervised_learning' },
         { text: '线性回归与梯度下降', link: '/paper/machine_learning_course/LinearRegressionWithOneVariables' },
         { text: '线性代数及其基本运算实现', link: '/paper/machine_learning_course/LinearAlgebra' },
+      ]
+    },
+    {
+      text: '论文阅读',
+      children: [
+        { text: '自然场景下的文字识别综述', link: '/paper/read/TextRecognitionInTheWildASurvey' }
       ]
     },
     {
