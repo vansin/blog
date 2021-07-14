@@ -118,7 +118,7 @@ detection是一个基于regression和segmentation的方法
 
 传统方法
 
-- histogram of oriented gradients descriptors[[196]](vansin.top)
+- histogram of oriented gradients descriptors
 - connected components
 - stroke width transform
 
@@ -177,9 +177,108 @@ detection是一个基于regression和segmentation的方法
 
 深度学习方法的优势
 
+- automation
+- effectiveness
+- generalization
+
+
+### Cropped Scene Text Image Recognition
+
+- segmentation-based methods
+- segmentation-free methods
+  - CTC-based methods
+  - attention-based methods
+
+- label embedding
+
+#### segmentation-based methods
+
+基于分割的方法一般经过以3个步骤
+
+1. image preprocessing
+2. character segmentation
+3. character recognition
+
+字符一个一个检测出来，然后组合成字符串
+
+aforementioned methods rely on lexicons
+
+#### segmentation free
+
+直接检测一整行
+
+
+### Image Preprocessing Stage
+
+
+### Feature Representation Stage
+
+
+### Sequence Modeling Stage
+
+
+### Prediction Stage
+
+### Connectionist Temporal Classification
+
+### Attention Mechanism
+
+### Other potential Approaches
+
+### End to End system
+
 ## evaluation and protocols
 
+### Datasets
 
 
+#### Synthetic Datasets
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210714194002.png)
+
+
+- Synth90K
+- SynthText
+- Verisimilar Sysnthesis
+- UnrealText
+- Evaluation protocols
+- Discussion
+
+#### Realistic Datasets
+
+
+regular latin Datasets
+
+- IIIT5K-Words(IIIT5k)
+- Street View Text(SVT)
+- ICDAR 2003(IC03)
+- ICDAR 2011(IC11)
+- ICDAR 2013(IC13)
+- Street View House Number(SVHN)
 
 ## discussion and future directions
+
+#### Generalization
+
+#### Evaluation
+
+
+#### Data Issues
+
+
+#### Scenarios
+
+
+#### Image Preprocessing 
+
+
+#### Ene-to-End Systems
+
+
+#### Languages
+
+
+#### Security
+
+
+#### STR+NLP

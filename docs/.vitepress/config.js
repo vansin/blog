@@ -28,13 +28,6 @@ module.exports = {
     //   apiKey: 'c57105e511faa5558547599f120ceeba',
     //   indexName: '古月闻星'
     // },
-
-    // carbonAds: {
-    //   carbon: 'CEBDT27Y',
-    //   custom: 'CKYD62QM',
-    //   placement: 'vuejsorg'
-    // },
-
     nav: [
       { text: '主页', link: '/' },
       {
