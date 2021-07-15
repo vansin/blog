@@ -90,6 +90,7 @@ function getLeetcodeSidebar() {
         { text: 'BSF&DFS', link: '/leetcode/BFS&DFS' },
         { text: '二分法', link: '/leetcode/bisearch' },
         { text: '字典树', link: '/leetcode/Trie' },
+        { text: '动态规划', link: '/leetcode/DP' },
       ]
     }
   ]
