@@ -356,16 +356,25 @@ https://jyouhou.github.io/UnrealText/
 ### Realistic Datasets
 
 
-regular latin Datasets
+### regular latin Datasets
 
 #### IIIT5K-Words(IIIT5k)
+
 #### Street View Text(SVT)
+
 #### ICDAR 2003(IC03)
+
 #### ICDAR 2011(IC11)
+
 #### ICDAR 2013(IC13)
+
 #### Street View House Number(SVHN)
 
-Irregular Latin Datasets
+SVHN is a real-world image dataset for developing machine learning and object recognition algorithms with minimal requirement on data preprocessing and formatting. It can be seen as similar in flavor to MNIST (e.g., the images are of small cropped digits), but incorporates an order of magnitude more labeled data (over 600,000 digit images) and comes from a significantly harder, unsolved, real world problem (recognizing digits and numbers in natural scene images). SVHN is obtained from house numbers in Google Street View images.
+
+
+
+### Irregular Latin Datasets
 
 #### StreetViewText-Perspective(SVT-P)
 #### CUTE80(CUTE)
