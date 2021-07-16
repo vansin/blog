@@ -208,75 +208,184 @@ aforementioned methods rely on lexicons
 直接检测一整行
 
 
-### Image Preprocessing Stage
+### Image Preprocessing Stage(图像预处理阶段)
 
 
-### Feature Representation Stage
+提高图像的质量，减小识别的难度
+
+#### Background Removal(去除背景)
+
+传统的二值化方法在文档图片上表现很好，但是在自然场景下表现很差
+
+通过 generative adversarial networks(GANs)去除背景[论文链接](https://arxiv.org/abs/2001.04189)
+#### Text Image Super-Resolution(TextSR)
+
+传统方法
+
+- bilinear
+- bicubic
+- designed filtering
+
+#### Rectification
+
+- Scale
+- orientation
+
+### Feature Representation Stage(特征提取阶段)
 
 
-### Sequence Modeling Stage
+histogram of oriented gradients(HOG) feature
+[191][133][190][173]
 
 
-### Prediction Stage
+CNNs
+[227][25][107][234][127]
 
-### Connectionist Temporal Classification
+VGGNet
+[170][161][162][79][24][217][193]
 
-### Attention Mechanism
+ResNet
+[66] [108], [44], [187], [163], [20], [197], [205], [94], [233], [216], [195], [4], [147], [242], [235]
 
-### Other potential Approaches
+DenseNet
+[74], [47], [48]
+
+Recursive CNNs
+[91]
+
+RCNN
+[121]
+
+
+combined CNNs with the attention mechanism
+[47], [238], [76], [48], [98], [44]
+
+
+However, the performance improvement comes at the cost of memory and computation consumption
+
+A combination of the background removal technique [40] with simple feature extractors may be an alternative in future research
+
+### Sequence Modeling Stage(序列建模)
+
+
+[173], [161], [162], [108], [174], [189], [25], [107], [187], [47], [163], [127], [20], [94], [233], [216], [195], [4], [193], [197] 
+
+as the sequence modeling module because of its ability to capture long-range dependencies.
+
+BiLSTM很耗费计算资源
+
+a sliding window or deep one-dimensional CNN to replace BiLSTM
+
+### Prediction Stage(预测阶段)
+
+CTC和注意力机制是主要的方法
+
+- Connectionist temporal classification(CTC)
+- the attention mechanism
+
+
+#### Connectionist Temporal Classification
+
+- The underlying methodology of CTC is sophisticated, which results in a largecomputational cost for long text sequences.
+- CTC suffers from the peaky distribution problems[57], [131] and its performance usually degrades for repeated patterns.
+- CTC can hardly be applied to two-dimensional (2D) prediction problems, such as irregular scene text recognition, where characters in the input text instance image are distributed in a spatial structure.
+#### Attention Mechanism
+
+在预测模型中注意力机制经常与RNN一起出现
+
+- Applying to 2D prediction problems.
+- Improving the construction of implicit language model
+- Improving parallelization and reducing complexity
+- Addressing attention drift
+
+Both CTC and the attention mechanism have their strengths and limitations
+
+#### Other potential Approaches
+
+- combined CNNs with a CRF graphical model for unconstrained text recognition
 
 ### End to End system
 
-## evaluation and protocols
+Given a text image with a complex background as input, an end-to-end system aims to directly convert all text regions into string sequences.
 
-### Datasets
+https://github.com/MhLiao/TextBoxes
+
+https://github.com/lvpengyuan/masktextspotter.caffe2
 
 
-#### Synthetic Datasets
+https://github.com/tonghe90/textspotter
+
+https://github.com/jiangxiluning/FOTS.PyTorch
+
+https://github.com/MhLiao/TextBoxes_plusplus
+
+https://github.com/tonghe90/textspotter
+
+https://github.com/msight-tech/research-charnet
+
+https://github.com/Yuliang-Liu/bezier_curve_text_spotting
+
+
+ 
+## Datasets
+
+https://www.cnblogs.com/lillylin/p/6893500.html
+
+
+### Synthetic Datasets
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210714194002.png)
 
 
-- Synth90K
-- SynthText
-- Verisimilar Sysnthesis
-- UnrealText
-- Evaluation protocols
-- Discussion
+#### Synth90K
 
-#### Realistic Datasets
+https://www.robots.ox.ac.uk/~vgg/data/text/
+
+
+
+#### SynthText
+
+https://github.com/ankush-me/SynthText
+
+#### Verisimilar Sysnthesis
+
+#### UnrealText
+
+https://jyouhou.github.io/UnrealText/
+
+### Realistic Datasets
 
 
 regular latin Datasets
 
-- IIIT5K-Words(IIIT5k)
-- Street View Text(SVT)
-- ICDAR 2003(IC03)
-- ICDAR 2011(IC11)
-- ICDAR 2013(IC13)
-- Street View House Number(SVHN)
+#### IIIT5K-Words(IIIT5k)
+#### Street View Text(SVT)
+#### ICDAR 2003(IC03)
+#### ICDAR 2011(IC11)
+#### ICDAR 2013(IC13)
+#### Street View House Number(SVHN)
 
 Irregular Latin Datasets
 
-- StreetViewText-Perspective(SVT-P)
-- CUTE80(CUTE)
-- ICDAR 2015(IC15)
-- COCO-Text
-- Total-Text
+#### StreetViewText-Perspective(SVT-P)
+#### CUTE80(CUTE)
+#### ICDAR 2015(IC15)
+#### COCO-Text
+#### Total-Text
 
 Multilingual Datasets
 
-- Reading Chinese Text in the Wild(RCTW-17)
-- Muti-Type Web Images(MTWI)
-- Chinese Text in the Wild(CTW)
-- SCUT-CTW1500
-- Large-Scale Street View Text(LSVT)
-- Arbitrary-Shaped Text(ArT)
-- Reading Chinese Text on Signboard(ReCTS-25k)
-- Multi-lingual Text(MLT-2019)
+#### Reading Chinese Text in the Wild(RCTW-17)
+#### Muti-Type Web Images(MTWI)
+#### Chinese Text in the Wild(CTW)
+#### SCUT-CTW1500
+#### Large-Scale Street View Text(LSVT)
+#### Arbitrary-Shaped Text(ArT)
+#### Reading Chinese Text on Signboard(ReCTS-25k)
+#### Multi-lingual Text(MLT-2019)
 
 
-### Evaluation protocols
+## Evaluation protocols
 
 #### Evaluation Protocols for Latin Text. Recognition protocols
 
