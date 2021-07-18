@@ -262,3 +262,80 @@ class Solution:
             sell = max(sell, buy+p)
         return sell
 ```
+
+
+## [【LeetCode】300. Longest Increasing Subsequence](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+
+### 动态规划方法
+
+```python
+
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        n = nums.__len__()
+        DP = [1]*n
+
+        for i in range(n):
+            for j in range(i):
+                if nums[i]>nums[j]:
+                    DP[i] = max(DP[i],DP[j]+1) 
+
+        return max(DP)
+
+```
+
+## [【LeetCode】322. Coin Change](https://leetcode-cn.com/problems/coin-change/submissions/)
+
+和爬楼梯很像
+
+定义状态：
+
+DP[i]代表凑齐i块钱，最少需要的纸币数
+
+状态转移方程
+
+DP[i] = min(DP[i-所有的面额]}) +1
+
+
+```python 
+
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+
+        DP = [amount+1]*(amount+1)
+        DP[0] = 0
+        for i in range(1,amount+1):
+            last_list = []
+            for coin in coins:
+                if i>=coin:
+                    DP[i] = min(DP[i],DP[i-coin]+1)
+        if DP[amount]>amount:
+            return -1
+        return DP[amount]
+
+```
+
+
+## [【LeetCode】72. Edit Distance](https://leetcode-cn.com/problems/edit-distance/)
+
+代码不长，思考难度很大
+
+```python
+
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+
+        m = word1.__len__()
+        n = word2.__len__()
+
+        DP = [[0 for _ in range(n+1)] for _ in range(m+1)]
+        for i in range(m+1): DP[i][0] = i
+        for j in range(n+1): DP[0][j] = j
+        for i in range(1,m+1):
+            for j in range(1,n+1):
+                if word1[i-1] == word2[j-1]:
+                    DP[i][j] = DP[i-1][j-1]
+                else:
+                    DP[i][j] = min(DP[i-1][j-1],DP[i-1][j],DP[i][j-1])+1
+        return DP[m][n]
+```
