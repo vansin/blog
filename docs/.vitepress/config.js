@@ -15,7 +15,6 @@ module.exports = {
   //   //   md.use(require('markdown-it-xxx'))
   //   // }
   // },
-
   themeConfig: {
     repo: 'vansin/blog',
     docsDir: 'docs',

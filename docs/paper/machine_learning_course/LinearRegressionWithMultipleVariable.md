@@ -2,13 +2,15 @@
 
 
 ## 方程
+$h_n(x)=\theta _0​+\theta _0​x_1​+\theta _2​x_2​+\theta _3​x_3​+⋯+\theta _n​x_n​$
 
-![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210718212938.png)
 
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210719111132.png)
 
-![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210718213029.png)
 
 ## 梯度下降方法
+
+
 
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210718213049.png)
