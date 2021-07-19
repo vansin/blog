@@ -28,3 +28,14 @@ https://cb.cnki.net/journal/Search.aspx?navi=I
 https://github.com/HCIILAB?tab=repositories
 
 https://dblp.uni-trier.de/search?q=lianwen%20jin
+
+
+## 学习资源
+
+
+[谷歌官方机器学习教程](https://developers.google.com/machine-learning/crash-course?hl=zh-cn)
+
+[深度学习工程师 deeplearning.ai](https://study.163.com/my#/smarts)
+
+
+[《动手学深度学习》](https://zh-v2.d2l.ai/)
