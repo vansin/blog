@@ -2,19 +2,41 @@ module.exports = {
   lang: 'Zh',
   title: '闻星',
   description: '闻星',
+  markdown: {
+    // options for markdown-it-anchor
+    // anchor: { permalink: false },
 
-  // markdown: {
-  //   // options for markdown-it-anchor
-  //   // anchor: { permalink: false },
+    // options for markdown-it-toc
 
-  //   // options for markdown-it-toc
-  //   toc: { includeLevel: [1,2,3] },
+    config: (md) => {
+      // use more markdown-it plugins!
+      md.use(require('markdown-it'))
+      md.use(require('markdown-it-latex').default)
+      md.use(require('markdown-it-katex'))
+      md.use(require('markdown-it-toc'))
 
-  //   // config: (md) => {
-  //   //   // use more markdown-it plugins!
-  //   //   md.use(require('markdown-it-xxx'))
-  //   // }
-  // },
+      // const originalRender = md.render
+      // const REG_MATH_MUSTACHE_TAG = /<span class="katex">/g
+      // const replacer = '<span v-pre class="katex">'
+      // md.render = function () {
+      //   return originalRender
+      //     .apply(this, arguments)
+      //     .replace(REG_MATH_MUSTACHE_TAG, replacer)
+      // }
+
+
+    // md.use(require('@iktakahiro/markdown-it-katex'))
+    // md.render = function () {
+    //     return md
+    //         .render
+    //         .apply(this, arguments)
+    //         .replace(/<span class="katex">/g, '<span v-pre class="katex">')
+    // }
+
+    },
+    toc: { includeLevel: [1,2,3,4,5] }
+
+  },
   themeConfig: {
     repo: 'vansin/blog',
     docsDir: 'docs',
@@ -141,6 +163,7 @@ function getPaperSidebar() {
       text: '相关基础',
       children: [
         { text: 'LSTM', link: '/paper/base/LSTM' },
+        { text: '英汉术语对照', link: '/paper/base/words' },
       ]
     },
   ]

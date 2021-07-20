@@ -37,5 +37,4 @@ https://dblp.uni-trier.de/search?q=lianwen%20jin
 
 [深度学习工程师 deeplearning.ai](https://study.163.com/my#/smarts)
 
-
 [《动手学深度学习》](https://zh-v2.d2l.ai/)
