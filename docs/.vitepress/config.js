@@ -15,14 +15,14 @@ module.exports = {
       md.use(require('markdown-it-katex'))
       md.use(require('markdown-it-toc'))
 
-      // const originalRender = md.render
-      // const REG_MATH_MUSTACHE_TAG = /<span class="katex">/g
-      // const replacer = '<span v-pre class="katex">'
-      // md.render = function () {
-      //   return originalRender
-      //     .apply(this, arguments)
-      //     .replace(REG_MATH_MUSTACHE_TAG, replacer)
-      // }
+      const originalRender = md.render
+      const REG_MATH_MUSTACHE_TAG = /<span class="katex">/g
+      const replacer = '<span v-pre class="katex">'
+      md.render = function () {
+        return originalRender
+          .apply(this, arguments)
+          .replace(REG_MATH_MUSTACHE_TAG, replacer)
+      }
 
 
     // md.use(require('@iktakahiro/markdown-it-katex'))
