@@ -164,7 +164,7 @@ RUN apt-get update \
 Dockerfile如果包含apt等从国外源中安装依赖的命令，其过程会很慢甚至会卡住，其解决方案可以是挂载代理（挖坑后续文章）或使用阿里云镜像服务的海外机器进行构建（挖坑后续文章）
 
 ```shell
-docker build -t .
+docker build -t dockerImageName:version .
 ```
 
 ## pytorch-docker

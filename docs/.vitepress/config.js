@@ -2,41 +2,41 @@ module.exports = {
   lang: 'Zh',
   title: '闻星',
   description: '闻星',
-  markdown: {
-    // options for markdown-it-anchor
-    // anchor: { permalink: false },
+  // markdown: {
+  //   // options for markdown-it-anchor
+  //   // anchor: { permalink: false },
 
-    // options for markdown-it-toc
+  //   // options for markdown-it-toc
 
-    config: (md) => {
-      // use more markdown-it plugins!
-      md.use(require('markdown-it'))
-      md.use(require('markdown-it-latex').default)
-      md.use(require('markdown-it-katex'))
-      md.use(require('markdown-it-toc'))
+  //   config: (md) => {
+  //     // use more markdown-it plugins!
+  //     md.use(require('markdown-it'))
+  //     md.use(require('markdown-it-latex').default)
+  //     md.use(require('markdown-it-katex'))
+  //     md.use(require('markdown-it-toc'))
 
-      const originalRender = md.render
-      const REG_MATH_MUSTACHE_TAG = /<span class="katex">/g
-      const replacer = '<span v-pre class="katex">'
-      md.render = function () {
-        return originalRender
-          .apply(this, arguments)
-          .replace(REG_MATH_MUSTACHE_TAG, replacer)
-      }
+  //     const originalRender = md.render
+  //     const REG_MATH_MUSTACHE_TAG = /<span class="katex">/g
+  //     const replacer = '<span v-pre class="katex">'
+  //     md.render = function () {
+  //       return originalRender
+  //         .apply(this, arguments)
+  //         .replace(REG_MATH_MUSTACHE_TAG, replacer)
+  //     }
 
 
-    // md.use(require('@iktakahiro/markdown-it-katex'))
-    // md.render = function () {
-    //     return md
-    //         .render
-    //         .apply(this, arguments)
-    //         .replace(/<span class="katex">/g, '<span v-pre class="katex">')
-    // }
+  //   // md.use(require('@iktakahiro/markdown-it-katex'))
+  //   // md.render = function () {
+  //   //     return md
+  //   //         .render
+  //   //         .apply(this, arguments)
+  //   //         .replace(/<span class="katex">/g, '<span v-pre class="katex">')
+  //   // }
 
-    },
-    toc: { includeLevel: [1,2,3,4,5] }
+  //   },
+  //   toc: { includeLevel: [1,2,3,4,5] }
 
-  },
+  // },
   themeConfig: {
     repo: 'vansin/blog',
     docsDir: 'docs',
