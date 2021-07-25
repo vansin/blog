@@ -286,6 +286,7 @@ function getWeeklySidebar() {
     {
       text: '闻星周刊',
       children: [
+        { text: '20210801', link: '/weekly/20210801' },
         { text: '20210704', link: '/weekly/20210704' },
         { text: '20210627', link: '/weekly/20210627' },
         { text: '20210613', link: '/weekly/20210613' },
