@@ -132,7 +132,8 @@ function getPaperSidebar() {
     {
       text: '论文阅读',
       children: [
-        { text: '自然场景下的文字识别综述', link: '/paper/read/TextRecognitionInTheWildASurvey' }
+        { text: '自然场景下的文字识别综述', link: '/paper/read/TextRecognitionInTheWildASurvey' },
+        { text: 'AlexNet图像分类', link: '/paper/read/ImageNetClassificationwithDeepConvolutionalNeuralNetworks' },
       ]
     },
     {
