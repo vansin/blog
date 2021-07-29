@@ -5,6 +5,40 @@
 
 ## 复现技巧
 
+### dockerfile
+
+```shell
+FROM tensorflow/tensorflow:1.10.0-devel-gpu-py3
+RUN apt-get update \
+    && apt-get install -y libsm6 \
+    && apt-get install -y libxrender1 \
+    && apt-get install -y libxext-dev \
+    && apt-get install -y libgl1-mesa-glx
+RUN pip install --upgrade pip \
+    && pip config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple/ \
+    && pip install jupyterlab \
+    && pip install matplotlib \
+    && pip install opencv-python
+```
+
+```shell
+docker build -t alexnet:v2 
+```
+
+### 命令行启动docker
+
+```shell
+docker run --gpus all --rm -ti --ipc=host -v $(pwd):/app -P alexnet:v2 /bin/bash
+```
+
+### pycharm debug
+
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210729145045.png)
+
+
+
+### 开启tensorboard
 
 进入某个运行的容器去开启tensorboard
 
