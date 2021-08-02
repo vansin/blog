@@ -1,16 +1,27 @@
 # ubuntu下高效写作
 
 
+## markdown表格技巧
+
+### 表格转换工具
+
+https://tableconvert.com/
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210802194312.png)
+
+
+## 高效截图和标注
+
 在markdown技术文档的写作过程中，不可避免的需要使用图片，下面是使用picgo+阿里云OSS+Flameshot高效使用的最佳实践
 
-## 安装xclip
+### 安装xclip
 
 ```shell
 sudo apt-get update -y
 sudo apt-get install -y xclip
 ```
 
-## 安装picgo
+### 安装picgo
 
 https://github.com/Molunerfinn/PicGo/releases/  
 
@@ -32,7 +43,7 @@ picgo
 
 
 
-### 配置图床（阿里云OSS为例）
+#### 配置图床（阿里云OSS为例）
 
 - 注册阿里云账号
 - 开通阿里云OSS服务
@@ -40,15 +51,15 @@ picgo
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210622162737.png)
 
-## 安装Flameshot
+###  安装Flameshot
 
-### 安装命令
+#### 安装命令
 
 ```shell
 sudo apt install flameshot
 ```
 
-### 快捷键设置
+#### 快捷键设置
 
 进入系统设置中的“键盘设置”  
 页面中会列出所有现有的键盘快捷键，拉到底部就会看见一个 “+” 按钮  
@@ -59,11 +70,11 @@ sudo apt install flameshot
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210622161051.png)
 
-### 软件截图
+#### 软件截图
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210622162427.png)
 
-## 快捷方式使用
+### 快捷方式使用
 
 - Ctrl+Q 截图
 - Ctrl+C 保存到剪切板
