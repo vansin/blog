@@ -134,6 +134,7 @@ function getPaperSidebar() {
       children: [
         { text: '自然场景下的文字识别综述', link: '/paper/read/TextRecognitionInTheWildASurvey' },
         { text: 'AlexNet图像分类', link: '/paper/read/ImageNetClassificationwithDeepConvolutionalNeuralNetworks' },
+        { text: 'VGG图像分类', link: '/paper/read/VGG' },
       ]
     },
     {
@@ -287,6 +288,7 @@ function getWeeklySidebar() {
     {
       text: '闻星周刊',
       children: [
+        { text: '20210808', link: '/weekly/20210808' },
         { text: '20210801', link: '/weekly/20210801' },
         { text: '20210704', link: '/weekly/20210704' },
         { text: '20210627', link: '/weekly/20210627' },
