@@ -10,7 +10,7 @@
 | ----------- | -------- | -------------------------- | ----------------------- |
 | AlexNet     | 228.1MB  | 20min/3Epoch(需要重新测量) | 0.97814(1113)           |
 | VGG         | 537.1MB  | 30min/3Epoch(需要重新测量) | 0.41999(907)            |
-| googleLeNet |          |                            |                         |
+| googleLeNet | 53 MB    |                            |                         |
 
 
 
@@ -42,8 +42,6 @@ RUN pip install --upgrade pip \
 ```shell
 docker build -t vgg_pytorch:1.4_0 .
 ```
-
-
 
 ## 训练技巧
 
