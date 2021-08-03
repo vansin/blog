@@ -1,7 +1,5 @@
 # VGG
 
-
-
 [TOC]
 
 ## 模型对比
@@ -65,6 +63,38 @@ import pandas as pd
 dataframe = pd.DataFrame.from_dict(csv_list)
 dataframe.to_csv('../7.csv',index=False)
 ```
+
+
+
+## 网络结构
+
+### 池化层作用
+
+池化层主要作用是缩小矩阵尺寸，减少参数，起到了加速计算同时防止过拟合的作用。与卷积层类似，池化层也有一个类似过滤器的结构，并且也有步长的概念。池化层主要分为最大池化层(max pooling)和平均池化层(average pooling)。
+
+### **全连接层**
+
+在整个卷积神经网络中卷积层和池化层是针对输入的特征提取，那么全连接层就起到“分类器”的作用。实现上比较简单，直接使用矩阵相乘即可。
+
+### **Softmax 回归**
+
+Softmax 一般用于分类问题，也可以算作是一种激活函数，作用是将最后输出结果转换为归一化的概率分布。数学公式表示为：
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210803141856.png)
+
+### **激活函数**
+
+我们经常会使用激活函数来去除模型的线性化，让网络可以使用更少的参数抽象更复杂的模型，常见的激活函数有 sigmoid函数、tanh函数、relu函数。
+
+VGG-16 中使用 relu 作为激活函数，数学表示为：
+
+relu = max(0, x)
+
+
+
+sigmoid 与 tanh 函数的几何图像分别如下：
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210803142040.png)
 
 
 
