@@ -9,7 +9,7 @@
 学术界paper对应代码中依赖的TensorFlow和Pytorch的版本和其所依赖往往错综复杂，Anaconda的虚拟环境虽然能解决TensorFlow和Pytorch版本不同的问题，却不能方便解决**cuda-toolkit**版本不同的问题，如果多篇论文复现或实现所依赖的**cuda-toolkit**的版本有冲突，往往需要重装系统，费时费力。
 
 本文通过docker在Ubuntu等Linux上搭建深度学习炼丹炉的方法，能好的解决以上问题，让科研工作者把时间投入更重要的算法和模型优化上。
-  
+
 ## 原理
 
 
@@ -25,6 +25,7 @@
 ## 系统要求
 
 gpu版本的docker炼丹炉支持以下OS，基本上只支持Linux
+
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702191954.png)
 
 ## docker安装
@@ -77,13 +78,9 @@ docker run --rm hello-world
 
 - [阿里云加速器(点击管理控制台 -> 登录账号(淘宝账号) -> 右侧镜像中心 -> 镜像加速器 -> 复制地址](https://www.aliyun.com/product/acr?source=5176.11533457&userCode=8lx5zmtu)
 
-## NVIDIA Container Toolkit
+### NVIDIA Container Toolkit
 
-NVIDIA容器架构, windows用户不支持
-
-
-
-### Ubuntu安装
+NVIDIA容器架构, windows用户不支持，以下以ubuntu为例展示
 
 Setup the stable repository and the GPG key:
 
@@ -193,6 +190,48 @@ https://hub.docker.com/r/pytorch/pytorch/tags?page=1&ordering=last_updated
 
 打断点之后可以进行debug
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702191431.png)
+
+
+
+
+
+## 命令行运行docker命令
+
+docker 默认关闭挂载的功能，需要docker run时加上如下命令
+
+--privileged=true 
+
+```shell
+docker run --gpus all --rm -ti --ipc=host --privileged=true -v $(pwd):/app fangshancheng/fastai:torch1.1 /bin/bash 
+```
+
+## docker挂载群辉数据集
+
+```shell
+sudo apt-get update
+sudo apt install cifs-utils
+```
+
+
+
+```shell
+sudo mkdir /datasets
+```
+
+```shell
+mount.cifs //192.168.4.21/datasets /datasets -o user=vansin,pass=****,vers=2.0 
+
+# Ipv6
+mount -t cifs -o username=vansin,password=Mon******* //fdb0:ccfe:e630:fe00:211:32ff:fee9:f706/datasets /datasets
+```
+
+[原始参考链接](https://blog.csdn.net/qq_18951197/article/details/108255853)
+
+
+
+## 使用docker的弊端
+
+- matplotlib、opencv的GUI显示在debug模式下实现不方便
 
 
 
