@@ -82,6 +82,8 @@ docker run --rm hello-world
 
 ### NVIDIA Container Toolkit
 
+[官网安装教程](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#getting-started)
+
 NVIDIA容器架构, windows用户不支持，以下以ubuntu为例展示
 
 Setup the stable repository and the GPG key:
@@ -135,7 +137,28 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
 基本上所有大部分的深度学习开源代码依赖的是各个版本的TensorFlow和Pytorch，我们只需要将代码所依赖的
 
+### pytorch-docker
+
+拉取所有的pytorch版本的docker到本地
+
+- 假设10MB/s的网速，拉取4GB大小的镜像需要6分钟
+- 如果是2MB/s的网速，拉取一个镜像需要30min
+
+拉取到所有的pytorch版本到本地磁盘，可以大大减少等待docker镜像的拉取时间
+
+```shell
+docker pull -a pytorch:pytorch
+```
+
+https://hub.docker.com/r/pytorch/pytorch/tags?page=1&ordering=last_updated
+
 ### [tensorflow-docker](https://www.tensorflow.org/install/docker?hl=zh-cn)
+
+#### 拉取所有版本的docker
+
+```python
+docker pull -a tensorflow:tensorflow
+```
 
 
 #### 特定版本TensorFlow镜像拉取
@@ -144,27 +167,34 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702085619.png)
 
-### pytorch-docker
 
-pytorch和TensorFlow类似
-
-https://hub.docker.com/r/pytorch/pytorch/tags?page=1&ordering=last_updated
 
 ### dockerfile安装其他依赖
 
 新建一个Dockerfile， 把类似OpenCV等其他依赖写到Dockerfile里面，docker build镜像之后便可使用
 
-```dockerfile
-FROM tensorflow/tensorflow:1.4.0-gpu-py3
-RUN pip install Keras==2.1.2 \
-    && pip install numpy==1.13.3 \
-    && pip install opencv-python==3.3.0.10 \
-    && pip install h5py==2.7.1
+- apt换源
+- pip换源
+- 安装所需依赖
 
-RUN apt-get update \
+```dockerfile
+FROM pytorch/pytorch:1.4-cuda10.1-cudnn7-devel
+RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
+    && apt-get clean \
+    && apt-get update \
     && apt-get install -y libsm6 \
     && apt-get install -y libxrender1 \
-    && apt-get install -y libxext-dev
+    && apt-get install -y libxext-dev \
+    && apt-get install -y libgl1-mesa-glx
+RUN pip install --upgrade pip \
+    && pip config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple/ \
+    && pip install jupyterlab \
+    && pip install matplotlib \
+    && pip install opencv-python \
+    && pip install pillow \
+    && pip install torchsummary \
+    && pip install pandas
+
 ```
 
 
@@ -220,8 +250,6 @@ sudo apt-get update
 sudo apt install cifs-utils
 ```
 
-
-
 ```shell
 sudo mkdir /datasets
 ```
@@ -235,16 +263,14 @@ mount -t cifs -o username=vansin,password=Mon******* //fdb0:ccfe:e630:fe00:211:3
 
 [原始参考链接](https://blog.csdn.net/qq_18951197/article/details/108255853)
 
-
-
 ## 使用docker的弊端
 
 - matplotlib、opencv的GUI显示在debug模式下实现不方便
 
 
 
-## Reference
+## 总结
 
-https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#getting-started  
+使用docker搭建深度学习的炼丹炉能够大大提高论文的效率
 
-https://www.tensorflow.org/install/docker?hl=zh-cn
+如果想要加速实验室所有成员的镜像拉取速度，可以在本地搭建一个docker镜像仓库，本地的千兆局域网能大大加速镜像的拉取
