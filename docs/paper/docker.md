@@ -133,6 +133,8 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
 ## 镜像准备(pytorch tensorflow)
 
+基本上所有大部分的深度学习开源代码依赖的是各个版本的TensorFlow和Pytorch，我们只需要将代码所依赖的
+
 ### [tensorflow-docker](https://www.tensorflow.org/install/docker?hl=zh-cn)
 
 
