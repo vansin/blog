@@ -2,7 +2,9 @@
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/dang1.png)
 
-## 什么场景下需要？
+## 前言
+
+### 什么场景下需要？
 
 在深度学习的炼丹过程中，业界普遍使用的TensorFlow和Pytorch往往需要通过NVIDIA的GPU进行模型训练的加速。其并行加速最重要的依赖是NVIDIA开发的**cuda-toolkit**软件包
 
@@ -10,7 +12,7 @@
 
 本文通过docker在Ubuntu等Linux上搭建深度学习炼丹炉的方法，能好的解决以上问题，让科研工作者把时间投入更重要的算法和模型优化上。
 
-## 原理
+### 原理
 
 
 用户只要在Linux系统中安装好显卡驱动，不需要安装**cuda-toolkit**，**cuda-toolkit**、TensorFlow和Pytorch都在docker容器中
@@ -22,7 +24,7 @@
 <p align="center">docker炼丹炉的原理架构图</p>
 
 
-## 系统要求
+### nvidia支持系统要求
 
 gpu版本的docker炼丹炉支持以下OS，基本上只支持Linux
 
@@ -129,18 +131,24 @@ At this point, a working setup can be tested by running a base CUDA container:
 sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 ```
 
+## 镜像准备(pytorch tensorflow)
+
+### [tensorflow-docker](https://www.tensorflow.org/install/docker?hl=zh-cn)
 
 
-## [tensorflow-docker](https://www.tensorflow.org/install/docker?hl=zh-cn)
-
-
-### TensorFlow安装
+#### 特定版本TensorFlow镜像拉取
 
 [dockerhub](https://hub.docker.com/r/tensorflow/tensorflow/)中有各种版本的tensorflow，复现代码时只要选择对应的版本后docker pull就行
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210702085619.png)
 
-### 其他依赖安装
+### pytorch-docker
+
+pytorch和TensorFlow类似
+
+https://hub.docker.com/r/pytorch/pytorch/tags?page=1&ordering=last_updated
+
+### dockerfile安装其他依赖
 
 新建一个Dockerfile， 把类似OpenCV等其他依赖写到Dockerfile里面，docker build镜像之后便可使用
 
@@ -164,13 +172,11 @@ Dockerfile如果包含apt等从国外源中安装依赖的命令，其过程会�
 docker build -t dockerImageName:version .
 ```
 
-## pytorch-docker
+### 
 
-pytorch和TensorFlow类似
 
-https://hub.docker.com/r/pytorch/pytorch/tags?page=1&ordering=last_updated
 
-## pycharm调试docker和运行docker
+## pycharm调试docker中运行的程序
 
 ### 设置Python环境镜像
 
