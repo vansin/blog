@@ -113,11 +113,31 @@ function getLeetcodeSidebar() {
         { text: '字典树', link: '/leetcode/Trie' },
         { text: '动态规划', link: '/leetcode/DP' },
       ]
+    },
+    {
+      text: '动态规划',
+      children: [
+        { text: '背包问题', link: '/leetcode/DP/Knapsack_problem' }
+      ]
+    },
+    {
+      text: '数学',
+      children: [
+        { text: 'survey', link: '/leetcode/math/integer_break' }
+      ]
     }
   ]
 }
 function getPaperSidebar() {
   return [
+    {
+      text: '相关数学基础',
+      children: [
+        { text: '线性代数', link: '/paper/math/linear' },
+        { text: 'LSTM', link: '/paper/base/LSTM' },
+        { text: '英汉术语对照', link: '/paper/base/words' },
+      ]
+    },
     {
       text: '机器学习',
       children: [
@@ -127,6 +147,20 @@ function getPaperSidebar() {
         { text: '线性回归与梯度下降', link: '/paper/machine_learning_course/LinearRegressionWithOneVariables' },
         { text: '线性代数及其基本运算实现', link: '/paper/machine_learning_course/LinearAlgebra' },
         { text: '多元线性回归', link: '/paper/machine_learning_course/LinearRegressionWithMultipleVariable' },
+      ]
+    },
+    {
+      text: 'baseline',
+      children: [
+        { text: 'AlexNet', link: '/paper/baseline/AlexNet' },
+        { text: 'VGG', link: '/paper/baseline/VGG' },
+      ]
+    },
+    {
+      text: '目标检测',
+      children: [
+        { text: '目标检测调研', link: '/paper/detection/detection_survey' },
+        { text: 'YOLO', link: '/paper/detection/yolo' }
       ]
     },
     {
@@ -160,14 +194,7 @@ function getPaperSidebar() {
       children: [
         { text: 'pix2code(论文复现)', link: '/paper/pix2code' },
       ]
-    },
-    {
-      text: '相关基础',
-      children: [
-        { text: 'LSTM', link: '/paper/base/LSTM' },
-        { text: '英汉术语对照', link: '/paper/base/words' },
-      ]
-    },
+    }
   ]
 }
 function getOtherSidebar() {
