@@ -1,4 +1,4 @@
-# yolo
+## YOLO
 
 ## YOLO 发展历史
 
@@ -11,13 +11,52 @@
 - 创造性的将识别与定位合二为一
 - 由于其检测速度极快，在实际应用中十分受欢迎
 
+
+
+## YOLO原理
+
+- 一次性输出所检测到的目标信息，包括类别和位置。
+- 只要求这个物体的中心在某个grid之内
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804212822.png)
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804212840.png)
+
+
+
+- 每个都预测出B个bounding boxs，这个bounding boxs有5个量，分别是物体的中心位置(x,y)和它的高(h)和宽(w)，以及这次预测的置信度。 
+
+- 每个框还要负责预测这个框框中的物体**是什么类别**的
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804213034.png)
+
+
+
+如果我们有SxS个框框，每个框的bounding boxes个数为，分类器可以识别出C种不同的物体，那么整个ground truth的长度为: SxS(Bx5+C)
+
+
+
+### Bounding Boxs的细节
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804213358.png)
+
+### Confidence
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804213502.png)
+
+
+
+### GroundTruth
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804213543.png)
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804213641.png)
+
 ## YOLO V3网络结构
 
-
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804213716.png)
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804091054.png)
-
-
 
 Darknet-53处理速度每秒78张图，比Darknet-19慢不少，但是比同精度的
 ResNet快很多。Yolov3依然保持了高性能。
