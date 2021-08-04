@@ -1,5 +1,7 @@
 #  准备YOLO数据集
 
+
+
 ```python
 import json
 from PIL import Image
@@ -95,7 +97,6 @@ for img_info in papers:
     x2,y2 = min(all_x_y, key=functools.cmp_to_key(get_max))
 
     # x2, y2 = cells2[0]['bbox'][2][0],cells2[0]['bbox'][2][1]
-
     # x2,y2 = cells[-1]['bbox'][0][0],cells[-1]['bbox'][0][1]
 
     bbox1 = patches.Rectangle((x1, y1), x2-x1, y2-y1, linewidth=5, edgecolor=color, facecolor="none")
@@ -121,4 +122,12 @@ print(len(papers))
 ## 数据集问题
 
 并非按照顺时针标注，可能有部分数据集错误
+
+
+
+## Python排序技巧
+
+
+
+
 
