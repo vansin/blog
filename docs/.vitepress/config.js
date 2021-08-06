@@ -101,17 +101,7 @@ function getLeetcodeSidebar() {
     {
       text: '数据结构与算法',
       children: [
-        { text: '算法复杂程度', link: '/leetcode/complexity' },
-        { text: '数组&链表', link: '/leetcode/array_linklist' },
-        { text: '队列&栈', link: '/leetcode/queue_stack' },
-        { text: '优先队列&堆', link: '/leetcode/heap' },
-        { text: 'map&set', link: '/leetcode/map&set' },
-        { text: 'tree', link: '/leetcode/Tree' },
-        { text: 'Divde&Conquer', link: '/leetcode/Divde&Conquer' },
-        { text: 'BSF&DFS', link: '/leetcode/BFS&DFS' },
-        { text: '二分法', link: '/leetcode/bisearch' },
-        { text: '字典树', link: '/leetcode/Trie' },
-        { text: '动态规划', link: '/leetcode/DP' },
+        { text: '方法论', link: '/leetcode/plan_and_method' }
       ]
     },
     {
@@ -125,7 +115,24 @@ function getLeetcodeSidebar() {
       children: [
         { text: 'survey', link: '/leetcode/math/integer_break' }
       ]
+    },
+    {
+      text: '其他',
+      children: [
+        { text: '算法复杂程度', link: '/leetcode/complexity' },
+        { text: '数组&链表', link: '/leetcode/array_linklist' },
+        { text: '队列&栈', link: '/leetcode/queue_stack' },
+        { text: '优先队列&堆', link: '/leetcode/heap' },
+        { text: 'map&set', link: '/leetcode/map&set' },
+        { text: 'tree', link: '/leetcode/Tree' },
+        { text: 'Divde&Conquer', link: '/leetcode/Divde&Conquer' },
+        { text: 'BSF&DFS', link: '/leetcode/BFS&DFS' },
+        { text: '二分法', link: '/leetcode/bisearch' },
+        { text: '字典树', link: '/leetcode/Trie' },
+        { text: '动态规划', link: '/leetcode/DP' },
+      ]
     }
+
   ]
 }
 function getPaperSidebar() {

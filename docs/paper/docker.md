@@ -263,6 +263,24 @@ mount -t cifs -o username=vansin,password=Mon******* //fdb0:ccfe:e630:fe00:211:3
 
 [原始参考链接](https://blog.csdn.net/qq_18951197/article/details/108255853)
 
+
+
+## docker运行GUI软件
+
+https://github.com/anibali/docker-pytorch
+
+```shelol
+docker run --rm -it --init \
+  --gpus=all \
+  -e "DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+  anibali/pytorch python3 -c "import tkinter; tkinter.Tk().mainloop()"
+
+```
+
+
+
+
+
 ## 使用docker的弊端
 
 - matplotlib、opencv的GUI显示在debug模式下实现不方便
