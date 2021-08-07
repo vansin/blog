@@ -88,3 +88,27 @@ ResNet快很多。Yolov3依然保持了高性能。
 - 三个特征图一共可以解码出 8 × 8 × 3 + 16 × 16 × 3 + 32 × 32 × 3 = 4032 个box以及相应的类别、置信度。这4032个box，在训练和推理时，使用方法不一样：
   - 训练时4032个box全部送入打标签(base) ➜  blog git:(main) 函数，进行后一步的标签以及损失函数的计算。
   - 推理时，选取一个置信度阈值，过滤掉低阈值box，再经过nms（非极大值抑制），就可以输出整个网络的预测结果了。
+
+### 训练策略和损失函数
+
+#### 训练策略
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210806202428.png)
+
+#### 损失函数
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210806202444.png)
+
+### 实验结果分析
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210806202646.png)
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210806202710.png)
+
+
+
+## YOLO V4
+
+
+
+## YOLO V5

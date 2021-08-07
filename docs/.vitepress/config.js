@@ -138,6 +138,15 @@ function getLeetcodeSidebar() {
 function getPaperSidebar() {
   return [
     {
+      text: '科研方法论&工具',
+      children: [
+        { text: '方法论', link: '/paper/tools/methodology' },
+        { text: '常用工具和网站', link: '/paper/tools/tools' },
+        { text: 'docker炼丹炉', link: '/paper/tools/docker' },
+        { text: 'Ubuntu搭建炼丹炉', link: '/paper/tools/environment' },
+      ]
+    },
+    {
       text: '相关数学基础',
       children: [
         { text: '线性代数', link: '/paper/math/linear' },
@@ -167,7 +176,8 @@ function getPaperSidebar() {
       text: '目标检测',
       children: [
         { text: '目标检测调研', link: '/paper/detection/detection_survey' },
-        { text: 'YOLO', link: '/paper/detection/yolo' }
+        { text: 'YOLO', link: '/paper/detection/yolo' },
+        { text: 'mmdetection', link: '/paper/detection/mmdetection' }
       ]
     },
     {
@@ -183,19 +193,10 @@ function getPaperSidebar() {
       children: [
         { text: '经典论文参考', link: '/paper/reference' },
         { text: '前端智能化落地调研', link: '/paper/front-end-intelligence-research' },
-        { text: '数据集汇总', link: '/paper/dataset' },
-        { text: '常用模型总结', link: '/paper/common_model' }
+        { text: '数据集汇总', link: '/paper/dataset' }
       ]
     },
-    {
-      text: '科研方法论',
-      children: [
-        { text: '方法论', link: '/paper/methodology' },
-        { text: '常用工具和网站', link: '/paper/tools' },
-        { text: 'Ubuntu搭建炼丹炉', link: '/paper/environment' },
-        { text: 'docker炼丹炉', link: '/paper/docker' }
-      ]
-    },
+
     {
       text: '论文复现',
       children: [

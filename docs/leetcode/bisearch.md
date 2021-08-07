@@ -93,8 +93,9 @@ return left
 
 ### 寻找右侧边界模板
 
-
 ### 统一模板
+
+[34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 
 ```python
@@ -156,6 +157,54 @@ int right_bound(int[] nums, int target) {
     return right;
 }
 ```
+
+#### python模板
+
+
+
+```python
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        return [self.bi_left_search(nums, target), self.bi_right_search(nums, target)]
+
+    def bi_left_search(self, nums, target):
+        n = len(nums)
+        l,r = 0, n-1
+        while l<=r:
+            mid = (l+r) // 2
+            if nums[mid]<target:
+                l = mid+1
+            elif nums[mid]>target:
+                r = mid-1
+            else:
+                r = mid-1
+        if l>n-1 or nums[l] != target:
+            return -1
+        return l
+
+    def bi_right_search(self, nums, target):
+
+        n = len(nums)
+        l,r = 0, n-1
+
+        while l<=r:
+
+            mid = (l+r) // 2
+            if nums[mid]<target:
+                l = mid+1
+            elif nums[mid]>target:
+                r = mid - 1
+            else:
+                l = mid + 1
+        if r<0 or nums[r] != target:
+            return -1
+
+        return r
+```
+
+
+
+
 
 ## [1.【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
 
