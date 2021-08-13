@@ -172,7 +172,8 @@ function getPaperSidebar() {
       children: [
         { text: '目标检测调研', link: '/paper/detection/detection_survey' },
         { text: 'YOLO', link: '/paper/detection/yolo' },
-        { text: 'mmdetection', link: '/paper/detection/mmdetection' }
+        { text: 'mmdetection', link: '/paper/detection/mmdetection' },
+        { text: 'CascadeTabNet', link: '/competition/TAL_OCR_TABLE/CascadeTabNet' }
       ]
     },
     {
