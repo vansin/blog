@@ -52,11 +52,6 @@ module.exports = {
     nav: [
       { text: '主页', link: '/' },
       {
-        text: 'JavaScript',
-        link: '/JavaScript/index',
-        activeMatch: '^/JavaScript/'
-      },
-      {
         text: 'paper(前端智能化)',
         link: 'paper/index'
       },
