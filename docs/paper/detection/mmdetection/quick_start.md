@@ -1,3 +1,7 @@
+# 快速开始
+
+
+
 ```
 python demo/image_demo.py \
     demo/demo.jpg \
@@ -18,6 +22,8 @@ python demo/webcam_demo.py \
 ```
 
 
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210827100936.png)
 
 
 
