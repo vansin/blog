@@ -13,9 +13,9 @@ docker pull akadirpamukcu/tabnet:latest
 
 ```shell
 docker run --gpus all --rm -ti --ipc=host -v $(pwd):/app -P akadirpamukcu/tabnet --doc /app/imgs --model model1.pth --score 0.4 --output /app/output
+
+
 ```
-
-
 
 ```python
 docker run --gpus all --rm -ti --ipc=host -v $(pwd):/app -P akadirpamukcu/tabnet --doc /app/imgs --model /tabnet/model1.pth --score 0.4 --output /app/output
@@ -30,5 +30,9 @@ FROM akadirpamukcu/tabnet
 WORKDIR /tabnet/
 ENTRYPOINT []
 CMD [ "sh", "-c", "lnmp start; bash"]
+```
+
+```shell
+docker build -t tabnet:v9 .
 ```
 
