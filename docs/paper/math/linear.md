@@ -52,7 +52,7 @@
 
 #### 常用的向量范数
 
-![image-20210804132212559](/home/tml/.config/Typora/typora-user-images/image-20210804132212559.png)
+<!-- ![image-20210804132212559](/home/tml/.config/Typora/typora-user-images/image-20210804132212559.png) -->
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210804132757.png)
 
