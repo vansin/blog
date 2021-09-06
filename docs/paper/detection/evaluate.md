@@ -44,13 +44,24 @@ IoU是预测框与ground truth的交集和并集的比值。对于每个类，�
 - FP: IoU<= 0 . 5 的检测框， 或者是检测到同一个GT的多余检测框的数量
 - FN: 没有检测到的GT的数量
 - 由于图片中我们没有预测到物体的每个部分都被视为Negative， 因此计算True  Negatives比较难办。
-- Precision = TP / ( TP + FP) = TP / 所有被模型预测为正样本的数据的数量 Recall = TP / ( TP + FN) = TP / 所有真实类别为正样本的数据的数量
+
+$$
+Precision\,\,=\,\,\frac{TP}{TP+FP}=\frac{TP}{\text{所有被模型预测为正样本的数据的数量}}
+$$
+
+$$
+Recall \,\,=\,\,\frac{TP}{TP+FN}=\frac{TP}{\text{所有真实类别为正样本的数据的数量}}
+$$
+
+
+
+
 
 ** 在PASCAL VOC数据集中标注为difficult的数据不计入计算**
 
-## mAP
+## m AP的计算
 
-
+AP(Average Precision)
 
 通过PR曲线， 我们可以得到对应的AP值：
 
