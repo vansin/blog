@@ -51,7 +51,6 @@ RCNN：首先将深度学习引入目标检测领域,mAP由
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210907080249.png)
 
-![image-20210907080428940](C:\Users\hu983\AppData\Roaming\Typora\typora-user-images\image-20210907080428940.png)
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210907080435.png)
 
