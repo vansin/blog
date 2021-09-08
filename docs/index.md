@@ -23,6 +23,20 @@ footer: MIT Licensed | Copyright © 2021-present Vansin Hu
 - 影响力=靠谱程度
 - 足够投入
 
+## 作品
+
+### ByteWebMonitor
+
+
+
+### 表格检测
+
+
+
+### 大力考研题库
+
+
+
 ## 社区账号
 
 - [掘金](https://juejin.cn/user/2999123453413191/posts)
