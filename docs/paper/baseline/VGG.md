@@ -90,11 +90,31 @@ VGG-16 中使用 relu 作为激活函数，数学表示为：
 
 relu = max(0, x)
 
-
-
 sigmoid 与 tanh 函数的几何图像分别如下：
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210803142040.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
