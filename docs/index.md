@@ -27,11 +27,13 @@ footer: MIT Licensed | Copyright © 2021-present Vansin Hu
 
 ### ByteWebMonitor
 
+第一届字节青训营项目评比第一名
 
+http://byte-web-monitor.vansin.top/
 
 ### 表格检测
 
-
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/tabledetect.gif)
 
 ### 大力考研题库
 
