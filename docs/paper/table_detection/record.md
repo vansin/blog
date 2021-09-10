@@ -17,3 +17,21 @@ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.956
 2021-09-10 14:00:10,403 - mmdet - INFO - Exp name: table_v4-mask_rcnn_swin-t-p4-w7_fpn_1x_coco.py
 2021-09-10 14:00:10,404 - mmdet - INFO - Epoch(val) [12][2735]  bbox_mAP: 0.9560, bbox_mAP_50: 0.9720, bbox_mAP_75: 0.9610, bbox_mAP_s: -1.0000, bbox_mAP_m: 0.9570, bbox_mAP_l: 0.9560, bbox_mAP_copypaste: 0.956 0.972 0.961 -1.000 0.957 0.956, segm_mAP: 0.9560, segm_mAP_50: 0.9720, segm_mAP_75: 0.9610, segm_mAP_s: -1.0000, segm_mAP_m: 0.9570, segm_mAP_l: 0.9560, segm_mAP_copypaste: 0.956 0.972 0.961 -1.000 0.957 0.956
 
+| Exp name                                    | bbox_mAP | bbox_mAP_50 | bbox_mAP_75 | bbox_mAP_s | bbox_mAP_m | bbox_mAP_l |
+| ------------------------------------------- | -------- | ----------- | ----------- | ---------- | ---------- | ---------- |
+| table_v4-mask_rcnn_swin-t-p4-w7_fpn_1x_coco | 0.9560   | 0.9720      | 0.9610,     | -1.0000    | 0.9570     | 0.9560     |
+|                                             |          |             |             |            |            |            |
+|                                             |          |             |             |            |            |            |
+
+
+
+segm_mAP
+
+
+
+| Exp name                                    | segm_mAP | segm_mAP_50 | segm_mAP_75 | segm_mAP_s | segm_mAP_m | segm_mAP_l |
+| ------------------------------------------- | -------- | ----------- | ----------- | ---------- | ---------- | ---------- |
+| table_v4-mask_rcnn_swin-t-p4-w7_fpn_1x_coco | 0.9560   | 0.9720      | 0.9610,     | -1.0000    | 0.9570     | 0.9560     |
+|                                             |          |             |             |            |            |            |
+|                                             |          |             |             |            |            |            |
+
