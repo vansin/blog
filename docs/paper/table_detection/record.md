@@ -29,7 +29,7 @@ segm_mAP
 
 
 
-| Exp name                                    | segm_mAP | segm_mAP_50 | segm_mAP_75 | segm_mAP_s | segm_mAP_m | segm_mAP_l |
+| Exp name                                    | segm_mAP | segm_mAP_50 | segm_mAP_75 | segm_mAP_s | segm_mAP_m | bbox_mAP_l |
 | ------------------------------------------- | -------- | ----------- | ----------- | ---------- | ---------- | ---------- |
 | table_v4-mask_rcnn_swin-t-p4-w7_fpn_1x_coco | 0.9560   | 0.9720      | 0.9610,     | -1.0000    | 0.9570     | 0.9560     |
 |                                             |          |             |             |            |            |            |
