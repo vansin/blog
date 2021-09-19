@@ -11,10 +11,6 @@
 
 
 
-
-
-
-
 ## 贡献及结果
 
 本文发表在CVPR2020上
@@ -23,9 +19,7 @@
 
 - 使用相对复杂但高效的 CNN 架构，在对象检测和分割基准数据集上获得高精度作为该方法的主要组成部分。
 - 使用迭代迁移学习方法逐渐训练 CNN 模型，从更一般的任务开始，走向更具体的任务。 多次迭代迁移学习，从少量数据中有效提取所需知识。
-- 
-
-1.Using a relatively complex but efficient CNN archi-tecture that attains high accuracy on object detectionand segmentation benchmarking datasets as the maincomponent in the approach.
+- 通过将图像转换技术应用于训练图像以进行数据增强来加强学习过程。
 
 ## How
 
