@@ -35,3 +35,8 @@ segm_mAP
 |                                             |          |             |             |            |            |            |
 |                                             |          |             |             |            |            |            |
 
+
+
+Cascade (CVPR2020)标注文件中有一个小错误，多了一个符号导致出错~
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210919150840.png)
