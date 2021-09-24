@@ -31,9 +31,18 @@ footer: MIT Licensed | Copyright © 2021-present Vansin Hu
 
 http://byte-web-monitor.vansin.top/
 
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/b7.gif)
+
+
+
 ### 表格检测
 
-![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/tabledetect.gif)
+
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/table-capture-gif.gif)
+
+<!-- ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/tabledetect.gif) -->
 
 ### 大力考研题库
 
