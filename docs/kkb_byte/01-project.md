@@ -1,4 +1,4 @@
-## 项目先导
+## 学生如何积累项目亮点？
 
 如何做好一个项目？面试中如何回答项目？
 
@@ -8,17 +8,13 @@
 
 ### 跳槽到明星团队
 
-难度大，要求高
+难度大，要求高和
 
 ### 参与开源
 
-Vue（先看懂，解决issues）
+日常跟进Vue、React等明星项目github中的issues
 
-react
-
-核心都是人人都知道的项目
-
-### 把自己的项目做好
+### 把手中的项目做好
 
 做出深度，Python中的pre-commit
 
@@ -96,3 +92,10 @@ react
 
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210930212806.png)
+
+
+
+### Star原则
+
+**STAR法则是情境(situation)、任务(task)、行动(action)、结果(result)**
+
