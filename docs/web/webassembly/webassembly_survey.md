@@ -1,6 +1,6 @@
 # Webassembly调研
 
-本文旨在调研Webassembly产生的历史背景、能解决的问题、使用Webassembly的产品 和 Webassembly未来的发展趋势，如果错误请求斧正，本文将随着笔者的水平不断提升而持续更新
+​		本文旨在调研Webassembly产生的历史背景、能解决的问题、使用Webassembly的产品 和 Webassembly未来的发展趋势，如果错误请求斧正，本文将随着笔者的水平不断提升而持续更新。
 
 
 
@@ -8,21 +8,30 @@
 
 WebAssembly 是由主流浏览器厂商组成的 [W3C 社区团体](https://www.w3.org/community/webassembly/) 制定的一个新的规范。
 
-
-
 ### 目标
 
 1. 定义可移植的、大小和加载时间高效的二进制格式作为编译目标，可以通过利用各种平台（包括移动和物联网）上可用的通用硬件功能进行编译，以本机速度执行。
 
 2. 指定和执行增量：
+3. 优秀的C/C++库能够应用在Web端
 
 
 
 ## Webassembly适用场景
 
+- 使用Wasm完全重写现有框架
+- 使用Wasm重写现有框架的核心逻辑
+- 使用Wasm配合框架增强应用的部分功能
+- 使用其他语言构建Web前端框架
+
+
+
 适用于计算密集型领域，在多功能视频播放器，音频转码工具，网页游戏，加解密上有广泛应用。
 
 ## Webassembly落地产品
+
+- eBay-Barcode Scanner(eBay条形码扫描)
+- AutoCAD Web
 
 
 
@@ -61,3 +70,9 @@ https://webassembly.org/
 《深入浅出WebAssembly》
 
 《WebAssembly原理与核心技术》
+
+### 课程
+
+
+
+[Webassembly入门课](https://time.geekbang.org/column/intro/100059901)
