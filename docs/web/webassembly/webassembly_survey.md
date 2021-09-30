@@ -4,10 +4,6 @@
 
 
 
-
-
-
-
 ## Webassembly产生背景
 
 WebAssembly 是由主流浏览器厂商组成的 [W3C 社区团体](https://www.w3.org/community/webassembly/) 制定的一个新的规范。
@@ -18,13 +14,13 @@ WebAssembly 是由主流浏览器厂商组成的 [W3C 社区团体](https://www.
 
 1. 定义可移植的、大小和加载时间高效的二进制格式作为编译目标，可以通过利用各种平台（包括移动和物联网）上可用的通用硬件功能进行编译，以本机速度执行。
 
-
-
 2. 指定和执行增量：
+
+
 
 ## Webassembly适用场景
 
-- 多功能视频播放器，音频转码工具，网页游戏，加解密
+适用于计算密集型领域，在多功能视频播放器，音频转码工具，网页游戏，加解密上有广泛应用。
 
 ## Webassembly落地产品
 
@@ -51,3 +47,17 @@ WebAssembly 是由主流浏览器厂商组成的 [W3C 社区团体](https://www.
 
 
 ### Google Earth — 支持各大浏览器的 3D 地图，而且运行流畅
+
+
+
+## 学习资源
+
+### 网站
+
+https://webassembly.org/
+
+### 书籍
+
+《深入浅出WebAssembly》
+
+《WebAssembly原理与核心技术》
