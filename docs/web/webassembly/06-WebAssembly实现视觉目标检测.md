@@ -1,9 +1,10 @@
-# 浏览器端实现目标检测推理(基于wasm)
+# 基于WebAssembly实现浏览器端目标检测AI推理
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/det.gif)
 
 ## 体验地址
 https://det.vansin.top/
+
 https://github.com/vansin/ncnn-webassembly-nanodet
 ## 复现步骤
 
