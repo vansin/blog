@@ -1,19 +1,26 @@
 # Webassembly调研
 
-​		本文旨在调研Webassembly产生的历史背景、能解决的问题、使用Webassembly的产品 和 Webassembly未来的发展趋势，如果错误请求斧正，本文将随着笔者的水平不断提升而持续更新。
-
-
+本文旨在调研Webassembly产生的历史背景、能解决的问题、使用Webassembly的产品 和 Webassembly未来的发展趋势，如果错误请求斧正，本文将随着笔者的水平不断提升而持续更新。
 
 ## Webassembly产生背景
+
+每次执行JavaScript时需要通过词法分析 -> 语法分析 -> 代码生成然后执行，前面的步骤需要耗费大量的时间，而WebAssembly编译好的字节码，能够直接运行，所以能大大提高运行速度。
 
 WebAssembly 是由主流浏览器厂商组成的 [W3C 社区团体](https://www.w3.org/community/webassembly/) 制定的一个新的规范。
 
 ### 目标
 
 1. 定义可移植的、大小和加载时间高效的二进制格式作为编译目标，可以通过利用各种平台（包括移动和物联网）上可用的通用硬件功能进行编译，以本机速度执行。
+2. 优秀的C/C++库通过emscripten编译成WebAssembly运行在浏览器平台。
 
-2. 指定和执行增量：
-3. 优秀的C/C++库能够应用在Web端
+
+
+## WebAssembly现状
+
+- Rust 是最常用和最受欢迎的 WebAssembly 语言
+- C++是第三受欢迎的WebAssembly语言
+- AssemblyScript 是第二受欢迎的 WebAssembly 语言
+- WebAssembly 预计将对 Web、无服务器、游戏和容器化应用程序产生重大影响
 
 
 
@@ -28,51 +35,45 @@ WebAssembly 是由主流浏览器厂商组成的 [W3C 社区团体](https://www.
 
 适用于计算密集型领域，在多功能视频播放器，音频转码工具，网页游戏，加解密上有广泛应用。
 
-## Webassembly落地产品
+### Webassembly小工具
+
+
+
+### Webassembly落地产品
 
 - eBay-Barcode Scanner(eBay条形码扫描)
 - AutoCAD Web
+- [在线PS软件](https://ps.gaoding.com/#/)
+- [bilibili web投稿](https://link.zhihu.com/?target=https%3A//member.bilibili.com/v2%3Fspm_id_from%3D333.851.b_696e7465726e6174696f6e616c486561646572.36%23/upload/video/frame)
+- Figma — 基于浏览器的多人实时协作 UI 设计工具
+- Google Earth — 支持各大浏览器的 3D 地图，而且运行流畅
 
 
 
-### [在线PS软件](https://ps.gaoding.com/#/)
+## Webassembly的不足之处
+
+- 开发者们期待更好的调试支持
 
 
-
-![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20210929104355.png)
-
-
-
-### [bilibili web投稿](https://link.zhihu.com/?target=https%3A//member.bilibili.com/v2%3Fspm_id_from%3D333.851.b_696e7465726e6174696f6e616c486561646572.36%23/upload/video/frame)
-
-
-
-投稿时AI推理生成的视频摘要
-
-
-
-### Figma — 基于浏览器的多人实时协作 UI 设计工具
-
-
-
-### Google Earth — 支持各大浏览器的 3D 地图，而且运行流畅
 
 
 
 ## 学习资源
 
-### 网站
-
 https://webassembly.org/
-
-### 书籍
 
 《深入浅出WebAssembly》
 
 《WebAssembly原理与核心技术》
 
-### 课程
+[极客时间Webassembly入门课](https://time.geekbang.org/column/intro/100059901)
 
 
 
-[Webassembly入门课](https://time.geekbang.org/column/intro/100059901)
+## 参考
+
+[WebAssembly完全入门——了解wasm的前世今身](https://juejin.cn/post/6844903709806182413#heading-21)
+
+[The State of WebAssembly 2021](https://blog.scottlogic.com/2021/06/21/state-of-wasm.html)
+
+[c++项目转成wasm全过程-字节WebInfra团队](https://zhuanlan.zhihu.com/p/158586853)
