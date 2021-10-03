@@ -2,15 +2,20 @@
 theme: smartblue
 ---
 
-# Webassembly资源汇总
+# Webassembly这七年
 
-自2015年4月[W3C WebAssembly Community Group](https://www.w3.org/community/webassembly/2015/04/29/call-for-participation-in-webassembly-community-group/)成立以来，已近走过接近7个春夏秋冬，
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/Slide1.jpg)
+
+自2015年4月[W3C WebAssembly Community Group](https://www.w3.org/community/webassembly/2015/04/29/call-for-participation-in-webassembly-community-group/)成立以来，已近走过接近7个春夏秋冬
 
 本文旨在调研Webassembly产生的历史背景、能解决的问题、使用Webassembly的产品 和 Webassembly未来的发展趋势，如果错误请求斧正，本文将随着笔者的水平不断提升而持续更新。
 
-![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211003093522.png)
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211003195409.png)
+
+
 
 ## 相关社区
+
 - [W3C Community Group](https://www.w3.org/community/webassembly/)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/webassembly)
 - [Twitter](https://twitter.com/webassemblynews)
@@ -256,9 +261,9 @@ theme: smartblue
 - 使用Wasm配合框架增强应用的部分功能
 - 使用其他语言构建Web前端框架
 
+
+
 适用于计算密集型领域，在多功能视频播放器，音频转码工具，网页游戏，加解密上有广泛应用。
-
-
 
 
 
