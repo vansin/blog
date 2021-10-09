@@ -1,7 +1,3 @@
-<!-- # Benchmark and Model Zoo
-
-
-
 ## Baselines
 
 | Name                                         | links                                                        |      |
