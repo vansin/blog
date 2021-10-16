@@ -2,6 +2,10 @@
 
 基于mmdetection的表格检测代码
 
+```shell
+git clone https://github.com.cnpmjs.org/vansin/tabnet.git
+```
+
 ## install
 
 ### Method 1
