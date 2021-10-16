@@ -136,6 +136,7 @@ function getPaperSidebar() {
       text: '科研方法论&工具',
       children: [
         { text: '方法论', link: '/paper/tools/methodology' },
+        { text: 'tabnet', link: '/paper/tabnet' },
         { text: '常用工具和网站', link: '/paper/tools/tools' },
         { text: 'docker炼丹炉', link: '/paper/tools/docker' },
         { text: 'Ubuntu搭建炼丹炉', link: '/paper/tools/environment' },
