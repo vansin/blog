@@ -1,4 +1,4 @@
-# 二分法
+# 搞定二分法及其变体
 
 - 有序数组
 - 能索引访问
@@ -11,42 +11,7 @@
 
 参考labuladong的算法小抄
 
-https://labuladong.github.io/algo/1/6/
 
-```python 
-class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
-        left, right = 0, len(nums) - 1
-
-
-        def getPos(nums, target, left, right, sign = 0):
-            if not nums: return -1
-
-            while left <= right:
-                mid = (left + right + 1) // 2
-                if nums[mid] < target:
-                    left = mid + 1
-                elif nums[mid] > target:
-                    right = mid - 1
-                elif nums[mid] == target:
-                    if sign == 0:
-                        # 如果mid 在数组开头下标0的位置，那么就是leftindex， 或者左边的元素小于target。
-                        if mid == 0  or nums[mid - 1] < target:
-                            return mid
-                        # 否则因为是升序排列，说明左边的元素还有等于 target的， 那么缩小 right的范围，继续判断
-                        right = mid - 1
-                    else:
-                        # 对右边的判断逻辑是一样的
-                        if mid == len(nums) - 1 or nums[mid + 1] > target:
-                            return mid
-                        # 否则
-                        left = mid + 1
-            return -1
-        
-        leftIndex, rightIndex = getPos(nums, target, left, right), getPos(nums, target, left, right, 1)
-
-        return [leftIndex, rightIndex]
-```
 
 ### 基本模板
 
@@ -206,7 +171,7 @@ class Solution:
 
 
 
-## [1.【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
+## [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
 
 
 
@@ -233,7 +198,7 @@ class Solution:
 
 ```
 
-## [2.【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/)
+## [【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/)
 
 
 ```python
@@ -457,3 +422,9 @@ class Solution:
 
         return x,y
 ```
+
+
+
+## 参考
+
+https://labuladong.github.io/algo/1/6/
