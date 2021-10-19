@@ -13,6 +13,16 @@
 
 
 
+
+二分法题目汇总
+
+|      |      |      |
+| ---- | ---- | ---- |
+|      |      |      |
+|      |      |      |
+|      |      |      |
+
+
 ## 二分法模板
 
 ### 基本模板
@@ -430,3 +440,5 @@ class Solution:
 ## 参考
 
 https://labuladong.github.io/algo/1/6/
+
+https://leetcode-cn.com/leetbook/detail/binary-search/
