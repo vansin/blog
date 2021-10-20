@@ -12,8 +12,6 @@
 
 
 
-
-
 二分法题目汇总
 
 |      |      |      |
@@ -23,6 +21,18 @@
 |      |      |      |
 
 
+
+```python
+mid = l+(r-l) // 2
+mid = (l+r) // 2
+```
+
+
+
+以上的语句能达到同样的效果，第一种能够防止溢出
+
+
+
 ## 二分法模板
 
 ### 基本模板
@@ -30,7 +40,7 @@
 ```python
 left, right = 0, len(nums)-1
 while left<=right:
-    mid = (left + right) / 2
+    mid = (left + right) // 2
 
     if nums[mid] == target:
         break or return result
