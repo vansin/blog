@@ -6,11 +6,13 @@
 pip install mmcv
 ```
 
-
+https://github.com/vansin/mmcv-learn/tree/main/01_Config
 
 ## mmcv.Config的使用
 
 实验代码请查看
+
+
 
 ```python
 from mmcv import Config
