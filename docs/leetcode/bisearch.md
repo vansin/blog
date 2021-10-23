@@ -1,5 +1,7 @@
 # 搞定二分法及其变体
 
+二分法思想简单，当时其细节是魔鬼。
+
 在一个有序的数组中，相比顺序索引的查找O(N)的时间复杂程度，二分法查找的时间复杂程度为O(log(N))
 
 
@@ -14,11 +16,15 @@
 
 二分法题目汇总
 
-|      |      |      |
-| ---- | ---- | ---- |
-|      |      |      |
-|      |      |      |
-|      |      |      |
+|                                                              | 解题描述           |      |
+| ------------------------------------------------------------ | ------------------ | ---- |
+| [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/) | 稍微有变体         |      |
+| [【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/) |                    |      |
+| [【LeetCode】704. Binary Search](https://leetcode-cn.com/problems/binary-search/) |                    |      |
+| [【LeetCode】33. Search in Rotated Sorted Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 二分法变体         |      |
+| [【LeetCode】34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 先二分再向两端生长 |      |
+| [【LeetCode】74. Search a 2D Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/) |                    |      |
+| [【LeetCode】658. Find K Closest Elements](https://leetcode-cn.com/problems/find-k-closest-elements/) | 比较大的变体       |      |
 
 
 
@@ -61,26 +67,55 @@ while left<=right:
 
 
 ```python
+def bisect_left(a, x, lo=0, hi=None):
+    """Return the index where to insert item x in list a, assuming a is sorted.
 
-if nums.__len__() == 0:
-    return -1
+    The return value i is such that all e in a[:i] have e < x, and all e in
+    a[i:] have e >= x.  So if x already appears in the list, a.insert(x) will
+    insert just before the leftmost x already there.
 
-left, right = 0, nums.__len__()
+    Optional args lo (default 0) and hi (default len(a)) bound the
+    slice of a to be searched.
+    """
 
-while left<right:
-    mid = (left+right) / 2
-    if nums[mid] == target:
-        right=mid
-    elif nums[mid]<target:
-        left = mid + 1
-    elif nums[mid]>target:
-        right = mid
-return left
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+    while lo < hi:
+        mid = (lo+hi)//2
+        if a[mid] < x: lo = mid+1
+        else: hi = mid
+    return lo
 ```
 
 ### 寻找右侧边界模板
 
-### 统一模板
+```python
+def bisect_right(a, x, lo=0, hi=None):
+    """Return the index where to insert item x in list a, assuming a is sorted.
+
+    The return value i is such that all e in a[:i] have e <= x, and all e in
+    a[i:] have e > x.  So if x already appears in the list, a.insert(x) will
+    insert just after the rightmost x already there.
+
+    Optional args lo (default 0) and hi (default len(a)) bound the
+    slice of a to be searched.
+    """
+
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+    while lo < hi:
+        mid = (lo+hi)//2
+        if x < a[mid]: hi = mid
+        else: lo = mid+1
+    return lo
+
+```
+
+### 统一模板(只需要重点看这个模板)
 
 [34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
@@ -146,8 +181,6 @@ int right_bound(int[] nums, int target) {
 ```
 
 #### python模板
-
-
 
 ```python
 class Solution:
