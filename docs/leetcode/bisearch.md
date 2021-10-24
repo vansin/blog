@@ -1,10 +1,10 @@
-# 搞定二分法及其变体
+# 搞定二分法及其变体(含python二分法标准库实现剖析)
 
-> 思想很简单，细节是魔鬼
+> 思想很简单，细节是魔鬼，极其考验边界条件处理的能力~
 
+## 简述思想
 
-
-在一个有序的数组中，相比顺序索引的查找O(N)的时间复杂程度，二分法查找的时间复杂程度为O(log(N))
+在一个有序的数组中，相比顺序遍历的查找O(N)的时间复杂程度，二分法查找的时间复杂程度为O(log(N))
 
 二分法使用场景：
 
@@ -12,32 +12,130 @@
 - 能索引访问
 - 有明确边界
 
-综合场景
+
+
+## Python二分法标准库实现
+
+截止2021年10年24日，Python的Stable版本已经发布到3.10,其从Python的官方github的commit提交记录来看基本上从Python3.6-Python3.10都有一定内容的补充。
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211023201847.png)
 
 
 
-二分法题目汇总
+| Python版本 | 实现地址                                                    |
+| ---------- | ----------------------------------------------------------- |
+| 3.10       | https://github.com/python/cpython/blob/3.10/Lib/bisect.py   |
+| 3.9        | https://github.com/python/cpython/blob/3.9/Lib/bisect.py    |
+| 3.8        | https://github.com/python/cpython/blob/3.8/Lib/bisect.py    |
+| 3.7        | https://github.com/python/cpython/commits/3.7/Lib/bisect.py |
+| 3.6        | https://github.com/python/cpython/blob/3.6/Lib/bisect.py    |
 
-| Problem                                                      | 中文题 | 解题描述           |      |
-| ------------------------------------------------------------ | ------ | ------------------ | ---- |
-| [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/) |        | 稍微有变体         |      |
-| [【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/) |        |                    |      |
-| [【LeetCode】704. Binary Search](https://leetcode-cn.com/problems/binary-search/) |        |                    |      |
-| [【LeetCode】33. Search in Rotated Sorted Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) |        | 二分法变体         |      |
-| [【LeetCode】34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) |        | 先二分再向两端生长 |      |
-| [【LeetCode】74. Search a 2D Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/) |        |                    |      |
-| [【LeetCode】658. Find K Closest Elements](https://leetcode-cn.com/problems/find-k-closest-elements/) |        | 比较大的变体       |      |
-
-
+以下为Python 3.10的Python标准库源码，不得不说a这种变量感觉不专业，不过注释还是挺详细的~
 
 ```python
-mid = l+(r-l) // 2
-mid = (l+r) // 2
+"""Bisection algorithms."""
+
+
+def insort_right(a, x, lo=0, hi=None, *, key=None):
+    """Insert item x in list a, and keep it sorted assuming a is sorted.
+    If x is already in a, insert it to the right of the rightmost x.
+    Optional args lo (default 0) and hi (default len(a)) bound the
+    slice of a to be searched.
+    """
+    if key is None:
+        lo = bisect_right(a, x, lo, hi)
+    else:
+        lo = bisect_right(a, key(x), lo, hi, key=key)
+    a.insert(lo, x)
+
+
+def bisect_right(a, x, lo=0, hi=None, *, key=None):
+    """Return the index where to insert item x in list a, assuming a is sorted.
+    The return value i is such that all e in a[:i] have e <= x, and all e in
+    a[i:] have e > x.  So if x already appears in the list, a.insert(i, x) will
+    insert just after the rightmost x already there.
+    Optional args lo (default 0) and hi (default len(a)) bound the
+    slice of a to be searched.
+    """
+
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+    # Note, the comparison uses "<" to match the
+    # __lt__() logic in list.sort() and in heapq.
+    if key is None:
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if x < a[mid]:
+                hi = mid
+            else:
+                lo = mid + 1
+    else:
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if x < key(a[mid]):
+                hi = mid
+            else:
+                lo = mid + 1
+    return lo
+
+
+def insort_left(a, x, lo=0, hi=None, *, key=None):
+    """Insert item x in list a, and keep it sorted assuming a is sorted.
+    If x is already in a, insert it to the left of the leftmost x.
+    Optional args lo (default 0) and hi (default len(a)) bound the
+    slice of a to be searched.
+    """
+
+    if key is None:
+        lo = bisect_left(a, x, lo, hi)
+    else:
+        lo = bisect_left(a, key(x), lo, hi, key=key)
+    a.insert(lo, x)
+
+def bisect_left(a, x, lo=0, hi=None, *, key=None):
+    """Return the index where to insert item x in list a, assuming a is sorted.
+    The return value i is such that all e in a[:i] have e < x, and all e in
+    a[i:] have e >= x.  So if x already appears in the list, a.insert(i, x) will
+    insert just before the leftmost x already there.
+    Optional args lo (default 0) and hi (default len(a)) bound the
+    slice of a to be searched.
+    """
+
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+    # Note, the comparison uses "<" to match the
+    # __lt__() logic in list.sort() and in heapq.
+    if key is None:
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if a[mid] < x:
+                lo = mid + 1
+            else:
+                hi = mid
+    else:
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if key(a[mid]) < x:
+                lo = mid + 1
+            else:
+                hi = mid
+    return lo
+
+
+# Overwrite above definitions with a fast C implementation
+try:
+    from _bisect import *
+except ImportError:
+    pass
+
+# Create aliases
+bisect = bisect_right
+insort = insort_right
 ```
-
-
-
-以上的语句能达到同样的效果，第一种能够防止溢出
 
 
 
@@ -62,8 +160,6 @@ while left<=right:
 - 为什么while循环中的条件是<=，而不是<
 
 因为初始化**right**的赋值是**len(nums)-1**,即最后一个元素的索引，而不是**len(nums)**
-
-
 
 ### 寻找左侧边界模板
 
@@ -118,6 +214,8 @@ def bisect_right(a, x, lo=0, hi=None):
 ```
 
 ### 统一模板(只需要重点看这个模板)
+
+这个模板统一了while的条件和循环体内的判断顺序
 
 [34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
@@ -224,7 +322,19 @@ class Solution:
 
 
 
-## 图解
+
+
+## 二分法题目汇总
+
+| Problem                                                      | 中文题 | 解题描述           |      |
+| ------------------------------------------------------------ | ------ | ------------------ | ---- |
+| [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/) |        | 稍微有变体         |      |
+| [【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/) |        |                    |      |
+| [【LeetCode】704. Binary Search](https://leetcode-cn.com/problems/binary-search/) |        |                    |      |
+| [【LeetCode】33. Search in Rotated Sorted Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) |        | 二分法变体         |      |
+| [【LeetCode】34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) |        | 先二分再向两端生长 |      |
+| [【LeetCode】74. Search a 2D Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/) |        |                    |      |
+| [【LeetCode】658. Find K Closest Elements](https://leetcode-cn.com/problems/find-k-closest-elements/) |        | 比较大的变体       |      |
 
 ### [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
 
@@ -477,7 +587,9 @@ class Solution:
         return x,y
 ```
 
+## 总结
 
+思想很简单，细节是魔鬼，极其考验边界条件处理的能力~
 
 ## 参考
 
