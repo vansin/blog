@@ -1,10 +1,10 @@
 # 搞定二分法及其变体
 
-二分法思想简单，当时其细节是魔鬼。
+> 思想很简单，细节是魔鬼
+
+
 
 在一个有序的数组中，相比顺序索引的查找O(N)的时间复杂程度，二分法查找的时间复杂程度为O(log(N))
-
-
 
 二分法使用场景：
 
@@ -12,19 +12,21 @@
 - 能索引访问
 - 有明确边界
 
+综合场景
+
 
 
 二分法题目汇总
 
-|                                                              | 解题描述           |      |
-| ------------------------------------------------------------ | ------------------ | ---- |
-| [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/) | 稍微有变体         |      |
-| [【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/) |                    |      |
-| [【LeetCode】704. Binary Search](https://leetcode-cn.com/problems/binary-search/) |                    |      |
-| [【LeetCode】33. Search in Rotated Sorted Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 二分法变体         |      |
-| [【LeetCode】34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | 先二分再向两端生长 |      |
-| [【LeetCode】74. Search a 2D Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/) |                    |      |
-| [【LeetCode】658. Find K Closest Elements](https://leetcode-cn.com/problems/find-k-closest-elements/) | 比较大的变体       |      |
+| Problem                                                      | 中文题 | 解题描述           |      |
+| ------------------------------------------------------------ | ------ | ------------------ | ---- |
+| [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/) |        | 稍微有变体         |      |
+| [【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/) |        |                    |      |
+| [【LeetCode】704. Binary Search](https://leetcode-cn.com/problems/binary-search/) |        |                    |      |
+| [【LeetCode】33. Search in Rotated Sorted Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) |        | 二分法变体         |      |
+| [【LeetCode】34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) |        | 先二分再向两端生长 |      |
+| [【LeetCode】74. Search a 2D Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/) |        |                    |      |
+| [【LeetCode】658. Find K Closest Elements](https://leetcode-cn.com/problems/find-k-closest-elements/) |        | 比较大的变体       |      |
 
 
 
@@ -121,8 +123,6 @@ def bisect_right(a, x, lo=0, hi=None):
 
 
 ```python
-
-
 int binary_search(int[] nums, int target) {
     int left = 0, right = nums.length - 1; 
     while(left <= right) {
@@ -224,9 +224,9 @@ class Solution:
 
 
 
+## 图解
 
-
-## [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
+### [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
 
 
 
@@ -253,7 +253,7 @@ class Solution:
 
 ```
 
-## [【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/)
+### [【LeetCode】367. Valid Perfect Square](https://leetcode-cn.com/problems/valid-perfect-square/)
 
 
 ```python
@@ -278,7 +278,7 @@ class Solution:
         return False
 ```
 
-## [【LeetCode】704. Binary Search](https://leetcode-cn.com/problems/binary-search/)
+### [【LeetCode】704. Binary Search](https://leetcode-cn.com/problems/binary-search/)
 
 
 ```python 
@@ -302,7 +302,7 @@ class Solution:
 ```
 
 
-## [【LeetCode】33. Search in Rotated Sorted Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
+### [【LeetCode】33. Search in Rotated Sorted Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
 
 分段有序使用二分法的技巧
 
@@ -340,10 +340,9 @@ class Solution:
 ```
 
 
-## [【LeetCode】34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+### [【LeetCode】34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
-
-### 向两端生长
+#### 向两端生长
 
 ```python 
 
@@ -386,7 +385,7 @@ class Solution:
 
 ```
 
-### 两次使用二分法
+#### 两次使用二分法
 
 ```python
 
@@ -424,7 +423,7 @@ class Solution:
 
 ```
 
-## [【LeetCode】35. Search Insert Position](https://leetcode-cn.com/problems/search-insert-position/)
+### [【LeetCode】35. Search Insert Position](https://leetcode-cn.com/problems/search-insert-position/)
 
 ```python
 class Solution:
@@ -441,7 +440,7 @@ class Solution:
         return left
 ```
 
-## [【LeetCode】74. Search a 2D Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)
+### [【LeetCode】74. Search a 2D Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)
 
 ```python
 class Solution:
@@ -485,3 +484,4 @@ class Solution:
 https://labuladong.github.io/algo/1/6/
 
 https://leetcode-cn.com/leetbook/detail/binary-search/
+
