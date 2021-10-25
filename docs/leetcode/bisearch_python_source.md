@@ -2,9 +2,7 @@
 
 
 
-https://github.com/python/cpython/blob/3.10/Lib/bisect.py
-
-
+https://github.com/python/cpython/blob/3.10/Lib/bisect.py2
 
 ![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211023201847.png)
 
