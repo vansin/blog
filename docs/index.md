@@ -48,6 +48,14 @@ http://byte-web-monitor.vansin.top/
 
 
 
+## 机器视觉T恤印花缺陷检测
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211025150323.png)
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211025150243.png)
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211025150312.png)
+
 ## 社区账号
 
 - [掘金](https://juejin.cn/user/2999123453413191/posts)

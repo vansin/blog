@@ -12,8 +12,6 @@
 - 能索引访问
 - 有明确边界
 
-
-
 ## Python二分法标准库实现
 
 截止2021年10年24日，Python的Stable版本已经发布到3.10,其从Python的官方github的commit提交记录来看基本上从Python3.6-Python3.10都有一定内容的补充。
@@ -322,8 +320,6 @@ class Solution:
 
 
 
-
-
 ## 二分法题目汇总
 
 | Problem                                                      | 中文题 | 解题描述           |      |
@@ -335,6 +331,8 @@ class Solution:
 | [【LeetCode】34. Find First and Last Position of Element in Sorted Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) |        | 先二分再向两端生长 |      |
 | [【LeetCode】74. Search a 2D Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/) |        |                    |      |
 | [【LeetCode】658. Find K Closest Elements](https://leetcode-cn.com/problems/find-k-closest-elements/) |        | 比较大的变体       |      |
+
+
 
 ### [【LeetCode】69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
 
