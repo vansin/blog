@@ -8,7 +8,6 @@
 
 ## Waht is Mask R-CNN
 
-![image-20211008085519820](/home/vansin/snap/typora/42/.config/Typora/typora-user-images/image-20211008085519820.png)
 
 
 
