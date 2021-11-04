@@ -2,11 +2,21 @@
 
 首次将CNN引入到目标检测领域，UC Berkeley出品
 
-
-
 以往的特征提取往往使用SIFT 和 HOG方法
 
 
+
+最开始滑动窗口的算法
+
+
+
+Selective Search Region
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211104080650.png)
+
+
+
+![](https://moonstarimg.oss-cn-hangzhou.aliyuncs.com/picgo_img/20211104080710.png)
 
 ## 方法
 
